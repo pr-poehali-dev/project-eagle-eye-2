@@ -76,7 +76,7 @@ export default function MarketCardsBlock() {
         {/* Hero image */}
         <div className="rounded-2xl overflow-hidden mb-10" style={{ border: "1px solid rgba(120,0,255,0.2)" }}>
           <img
-            src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/dfddee68-b9bb-4ccb-bf07-1d96c7674e28.jpg"
+            src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/c98452d7-60c3-4925-b914-0c2e6f06bc0f.jpg"
             alt="Карточки товаров для маркетплейсов"
             className="w-full object-cover"
             style={{ maxHeight: "380px" }}
