@@ -10,6 +10,8 @@ export interface BlogPost {
   readTime: number;
   image: string;
   content: BlogSection[];
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 export interface BlogSection {
@@ -135,6 +137,8 @@ export const blogPosts: BlogPost[] = [
     slug: "kak-sdelat-kartochku-ozon-7-pravil",
     title: "7 правил продающей карточки для Ozon",
     description: "Разбираем 7 правил продающей карточки товара. Что видит покупатель в первые секунды и как это влияет на конверсию.",
+    seoTitle: "Карточка для Ozon которая продаёт — 7 правил | Стрельцов Digital",
+    seoDescription: "7 правил продающей карточки товара для Ozon в 2026. Как сделать фото, инфографику и дизайн карточки которая увеличивает конверсию. Гайд от Стрельцов Digital.",
     category: "Маркетплейсы",
     date: "24 февраля 2026",
     readTime: 7,

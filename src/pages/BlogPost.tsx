@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { blogPosts, categoryColors } from "@/data/blogData";
 import Header from "@/components/Header";
@@ -43,6 +44,26 @@ function ShareButtons({ title }: { title: string }) {
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find(p => p.slug === slug);
+
+  useEffect(() => {
+    if (!post) return;
+    const seoTitle = post.seoTitle || `${post.title} | Стрельцов Digital`;
+    const seoDesc = post.seoDescription || post.description;
+    const prevTitle = document.title;
+    const setMeta = (sel: string, val: string) => document.querySelector(sel)?.setAttribute("content", val);
+
+    document.title = seoTitle;
+    setMeta('meta[name="description"]', seoDesc);
+    setMeta('meta[property="og:title"]', seoTitle);
+    setMeta('meta[property="og:description"]', seoDesc);
+    setMeta('meta[property="og:image"]', post.image);
+    setMeta('meta[property="og:url"]', `https://streltsovdigital.ru/blog/${post.slug}`);
+    setMeta('meta[name="twitter:title"]', seoTitle);
+    setMeta('meta[name="twitter:description"]', seoDesc);
+    setMeta('meta[name="twitter:image"]', post.image);
+
+    return () => { document.title = prevTitle; };
+  }, [post]);
 
   if (!post) {
     return (
