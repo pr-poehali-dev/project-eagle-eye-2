@@ -1,10 +1,20 @@
-const bullets = [
-  "3-5 вариантов на выбор за 1 день",
-  "PNG на прозрачном фоне",
-  "Версия на белом и тёмном фоне",
-  "Мокапы — вывеска, визитка, стакан, футболка",
-  "Фирменные цвета и шрифты",
-  "Подходит для печати и digital",
+const packages = [
+  {
+    title: "Старт",
+    price: "2 990₽",
+    items: ["1 концепция", "2 правки", "PNG + JPG"],
+  },
+  {
+    title: "Бизнес",
+    price: "5 990₽",
+    items: ["2 концепции", "5 правок", "PNG + JPG + PDF + SVG", "Подбор цветов и шрифтов"],
+    popular: true,
+  },
+  {
+    title: "Премиум",
+    price: "9 990₽",
+    items: ["3 концепции", "Неограниченные правки", "Все форматы", "Адаптация под маркетплейсы"],
+  },
 ];
 
 const niches = [
@@ -57,80 +67,104 @@ export default function LogosBlock() {
           style={{ boxShadow: "0 0 60px rgba(0,100,255,0.15), 0 0 0 1px rgba(255,255,255,0.06)" }}
         >
           <img
-            src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/7042dd62-c715-4814-923e-f953f37b7cfa.jpg"
+            src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/34dc51d9-5e2d-493b-991d-d44bb37ba83d.jpg"
             alt="Логотипы и брендинг — портфолио"
             className="w-full object-cover"
           />
         </div>
 
-        {/* Bottom grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Что включено */}
-          <div
-            className="rounded-2xl p-6 border border-white/8 flex flex-col gap-3"
-            style={{ background: "rgba(255,255,255,0.03)" }}
-          >
-            <p className="text-[#00aaff] text-xs uppercase tracking-widest font-semibold mb-1">Что включено</p>
-            {bullets.map((b) => (
-              <div key={b} className="flex items-start gap-2">
-                <span className="text-green-400 text-sm mt-0.5">✅</span>
-                <span className="text-white/80 text-sm">{b}</span>
+        {/* Packages */}
+        <div className="grid md:grid-cols-3 gap-5 mb-8">
+          {packages.map((pkg) => (
+            <div
+              key={pkg.title}
+              className="rounded-2xl p-6 flex flex-col gap-4 relative"
+              style={{
+                background: pkg.popular
+                  ? "linear-gradient(145deg, #120d2e, #0d0a22)"
+                  : "rgba(255,255,255,0.03)",
+                border: pkg.popular
+                  ? "1px solid rgba(120,0,255,0.5)"
+                  : "1px solid rgba(255,255,255,0.08)",
+                boxShadow: pkg.popular ? "0 0 32px rgba(120,0,255,0.15)" : "none",
+              }}
+            >
+              {pkg.popular && (
+                <span
+                  className="absolute -top-3 left-1/2 -translate-x-1/2 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                  style={{ background: "linear-gradient(90deg, #7000ff, #aa44ff)" }}
+                >
+                  Популярный
+                </span>
+              )}
+              <div className="flex justify-between items-start">
+                <p className="text-white font-bold text-base">{pkg.title}</p>
+                <span
+                  className="text-lg font-extrabold shrink-0"
+                  style={{
+                    color: pkg.popular ? "#aa44ff" : "#00aaff",
+                    textShadow: pkg.popular ? "0 0 12px rgba(120,0,255,0.5)" : "0 0 12px rgba(0,170,255,0.4)",
+                  }}
+                >
+                  {pkg.price}
+                </span>
               </div>
-            ))}
-          </div>
+              <ul className="flex flex-col gap-2.5">
+                {pkg.items.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5">
+                    <span
+                      className="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shrink-0 text-[10px]"
+                      style={{
+                        background: pkg.popular ? "rgba(120,0,255,0.2)" : "rgba(0,170,255,0.15)",
+                        color: pkg.popular ? "#aa44ff" : "#00aaff",
+                        border: pkg.popular ? "1px solid rgba(120,0,255,0.4)" : "1px solid rgba(0,170,255,0.35)",
+                      }}
+                    >
+                      ✓
+                    </span>
+                    <span className="text-white/70 text-sm leading-snug">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
 
-          {/* Ниши */}
-          <div
-            className="rounded-2xl p-6 border border-white/8 flex flex-col gap-3"
-            style={{ background: "rgba(255,255,255,0.03)" }}
-          >
-            <p className="text-[#00aaff] text-xs uppercase tracking-widest font-semibold mb-1">Примеры ниш</p>
+        {/* Niches */}
+        <div
+          className="rounded-2xl p-6 border border-white/8 mb-8"
+          style={{ background: "rgba(255,255,255,0.03)" }}
+        >
+          <p className="text-[#00aaff] text-xs uppercase tracking-widest font-semibold mb-4">Примеры ниш</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {niches.map((n) => (
-              <div key={n.label} className="flex items-center gap-3">
+              <div key={n.label} className="flex items-center gap-2.5">
                 <span className="text-xl">{n.emoji}</span>
                 <div>
                   <span className="text-white text-sm font-medium">{n.label}</span>
-                  <span className="text-white/40 text-xs"> — {n.desc}</span>
+                  <span className="text-white/40 text-xs block">{n.desc}</span>
                 </div>
               </div>
             ))}
           </div>
+        </div>
 
-          {/* Цена */}
-          <div
-            className="rounded-2xl p-6 border border-white/8 flex flex-col gap-4"
-            style={{ background: "rgba(255,255,255,0.03)" }}
+        {/* CTA */}
+        <div className="flex justify-center">
+          <a
+            href="#контакты"
+            className="inline-flex items-center gap-2 font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
+            style={{
+              fontSize: "0.85rem",
+              padding: "14px 40px",
+              background: "linear-gradient(135deg, #0055ff, #00aaff)",
+              color: "#fff",
+              borderRadius: "6px",
+              boxShadow: "0 0 32px rgba(0,170,255,0.4)",
+            }}
           >
-            <p className="text-[#00aaff] text-xs uppercase tracking-widest font-semibold mb-1">Цена</p>
-            <div className="flex flex-col gap-3">
-              <div className="flex justify-between items-center border-b border-white/8 pb-3">
-                <div>
-                  <p className="text-white text-sm font-semibold">Логотип</p>
-                  <p className="text-white/40 text-xs">3-5 вариантов + исходники</p>
-                </div>
-                <span className="text-[#00aaff] font-bold text-lg">2 990₽</span>
-              </div>
-              <div className="flex justify-between items-center border-b border-white/8 pb-3">
-                <div>
-                  <p className="text-white text-sm font-semibold">Лого + фирменный стиль</p>
-                  <p className="text-white/40 text-xs">цвета, шрифты, мокапы</p>
-                </div>
-                <span className="text-[#00aaff] font-bold text-lg">4 990₽</span>
-              </div>
-            </div>
-            <a
-              href="https://t.me/seovzlet"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-auto inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all hover:opacity-90 hover:-translate-y-0.5"
-              style={{
-                background: "linear-gradient(135deg, #0088ff, #0055cc)",
-                boxShadow: "0 0 20px rgba(0,120,255,0.35)",
-              }}
-            >
-              Хочу логотип →
-            </a>
-          </div>
+            Хочу логотип → Написать в ЛС
+          </a>
         </div>
       </div>
     </section>
