@@ -7,6 +7,7 @@ import WebsitesBlock from "@/components/WebsitesBlock";
 import VkCoversBlock from "@/components/VkCoversBlock";
 import HowItWorks from "@/components/HowItWorks";
 import Pricing from "@/components/Pricing";
+import Stats from "@/components/Stats";
 import Featured from "@/components/Featured";
 import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
@@ -26,6 +27,7 @@ const Index = () => {
         <VkCoversBlock />
         <HowItWorks />
         <Pricing />
+        <Stats />
         <Featured />
         <Footer />
       </main>
