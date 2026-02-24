@@ -162,12 +162,12 @@ export default function BlogPost() {
           <p className="text-2xl font-extrabold text-white mb-2">🔥 Хотите такой же результат?</p>
           <p className="text-[#94a3b8] mb-6">Сделаю дизайн для вашего бизнеса.<br />Первый макет бесплатно за 24 часа.</p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <a href="https://vk.com/streltsov_digital" target="_blank" rel="noopener noreferrer"
+            <a href="https://vk.com/blacksetpro" target="_blank" rel="noopener noreferrer"
               className="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider text-white transition-all hover:opacity-90"
               style={{ background: "#0077ff" }}>
               Написать в ВК
             </a>
-            <a href="https://t.me/streltsov_digital" target="_blank" rel="noopener noreferrer"
+            <a href="https://t.me/seovzlet" target="_blank" rel="noopener noreferrer"
               className="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all hover:opacity-90"
               style={{ background: "#00d4ff", color: "#0a0e1a" }}>
               Написать в Telegram

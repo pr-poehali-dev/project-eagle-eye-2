@@ -119,7 +119,7 @@ export default function LogosBlock() {
               </div>
             </div>
             <a
-              href="https://t.me/streltsov_digital"
+              href="https://t.me/seovzlet"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-auto inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all hover:opacity-90 hover:-translate-y-0.5"
