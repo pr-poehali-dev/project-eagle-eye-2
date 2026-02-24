@@ -11,17 +11,19 @@ export default function Header({ className }: HeaderProps) {
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div
-            className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
+            className="w-11 h-11 rounded-full flex items-center justify-center shrink-0"
             style={{
-              background: "linear-gradient(135deg, #0044dd, #00aaff)",
-              boxShadow: "0 0 18px rgba(0, 170, 255, 0.55)",
+              background: "linear-gradient(145deg, #0a1a3a, #0d2050)",
+              border: "2px solid transparent",
+              backgroundClip: "padding-box",
+              boxShadow: "0 0 0 2px rgba(0,160,255,0.6), 0 0 20px rgba(0,140,255,0.4)",
             }}
           >
-            <Icon name="Zap" size={20} className="text-white" />
+            <Icon name="Zap" size={22} style={{ color: "#00c8ff" }} />
           </div>
-          <div className="font-bold leading-tight">
-            <div className="text-white text-base">Streltsov</div>
-            <div className="text-base" style={{ color: "#00aaff" }}>Digital</div>
+          <div className="font-bold leading-snug">
+            <div className="text-white" style={{ fontSize: "1.05rem" }}>Streltsov</div>
+            <div style={{ color: "#2b9fff", fontSize: "1.05rem" }}>Digital</div>
           </div>
         </div>
 
