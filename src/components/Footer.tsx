@@ -9,19 +9,19 @@ export default function Footer() {
       {/* Top row: logo + nav columns */}
       <div className="flex flex-col sm:flex-row justify-between gap-8 mb-6">
         {/* Logo */}
-        <div className="flex items-center gap-2.5 shrink-0">
+        <div className="flex items-center gap-3 shrink-0">
           <div
-            className="w-9 h-9 rounded-full flex items-center justify-center"
+            className="w-11 h-11 rounded-full flex items-center justify-center"
             style={{
-              background: "linear-gradient(135deg, #0055ff, #00aaff)",
-              boxShadow: "0 0 16px rgba(0, 170, 255, 0.6)",
+              background: "linear-gradient(145deg, #0a1a3a, #0d2050)",
+              boxShadow: "0 0 0 2px rgba(0,160,255,0.6), 0 0 20px rgba(0,140,255,0.4)",
             }}
           >
-            <Icon name="Zap" size={18} className="text-white" />
+            <Icon name="Zap" size={22} style={{ color: "#00c8ff" }} />
           </div>
-          <div className="text-white font-bold text-sm leading-tight">
-            <div>Streltsov</div>
-            <div style={{ color: "#00aaff" }}>Digital</div>
+          <div className="font-bold leading-snug">
+            <div className="text-white" style={{ fontSize: "1.05rem" }}>Streltsov</div>
+            <div style={{ color: "#2b9fff", fontSize: "1.05rem" }}>Digital</div>
           </div>
         </div>
 
