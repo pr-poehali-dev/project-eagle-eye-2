@@ -19,8 +19,8 @@ export default function Hero() {
       {/* Right side: hero image — seamlessly blends into bg */}
       <div className="absolute right-0 top-0 bottom-0 w-[62%] pointer-events-none">
         <img
-          src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/files/f08de814-4dee-46fe-b5a7-274cb6f4e058.jpg"
-          alt="Продающие карточки для маркетплейсов"
+          src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/e8d94d6d-6d33-4114-8828-378d2556a84a.jpg"
+          alt="Дизайн для бизнеса через нейросети"
           className="w-full h-full object-cover object-left-top"
           style={{ mixBlendMode: "lighten" }}
         />
