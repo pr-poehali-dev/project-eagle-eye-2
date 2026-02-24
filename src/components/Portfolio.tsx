@@ -1,12 +1,16 @@
 import { useState } from "react";
 
+type Item = { id: number; title: string; cat: string; color: string; img?: string; emoji?: string };
+
 const filters = ["Все", "Маркетплейсы", "Сайты", "Меню кафе", "Обложки ВК", "Визуал", "Брендинг"];
 
-const items = [
-  { id: 1, title: "Кроссовки Nike", cat: "Маркетплейсы", emoji: "👟", color: "#0a1f3d" },
-  { id: 2, title: "Наушники", cat: "Маркетплейсы", emoji: "🎧", color: "#0d1a35" },
-  { id: 3, title: "Косметика", cat: "Маркетплейсы", emoji: "💄", color: "#1a0d2e" },
-  { id: 4, title: "Сайт кофейни", cat: "Сайты", emoji: "☕", color: "#1a1008" },
+const items: Item[] = [
+  { id: 1, title: "Кроссовки Blaze Runner X", cat: "Маркетплейсы", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/b2e09f6b-ebe8-48c9-a12e-6bb6e7746fb1.jpg", color: "#0a1f3d" },
+  { id: 2, title: "Повербанк 20000 mAh", cat: "Маркетплейсы", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/2034e4b2-e0dd-466b-b2f6-4edf5579f7ef.jpg", color: "#0d1a35" },
+  { id: 3, title: "Aurora Espresso Pro", cat: "Маркетплейсы", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/cbde618b-0e84-41f6-8480-f136b2ac598c.jpg", color: "#1a1008" },
+  { id: 4, title: "Tactical Vanguard", cat: "Маркетплейсы", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/b124ea8f-6a99-4734-9aef-8d7ae04e4765.jpg", color: "#081a15" },
+  { id: 5, title: "Тайная Гармония", cat: "Маркетплейсы", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/657337fb-3199-4597-9165-fe753ab1337b.jpg", color: "#1a0d2e" },
+  { id: 16, title: "Сайт кофейни", cat: "Сайты", emoji: "☕", color: "#1a1008" },
   { id: 5, title: "Сайт барбершопа", cat: "Сайты", emoji: "✂️", color: "#0d1a1a" },
   { id: 6, title: "Сайт фитнес-клуба", cat: "Сайты", emoji: "💪", color: "#0a1a10" },
   { id: 7, title: "Меню донер", cat: "Меню кафе", emoji: "🌯", color: "#1a1208" },
@@ -83,13 +87,17 @@ export default function Portfolio() {
             onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(0,170,255,0.45)")}
             onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)")}
           >
-            {/* Placeholder content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-3">
-              <span className="text-4xl">{item.emoji}</span>
-              <p className="text-white/40 text-[10px] uppercase tracking-wider text-center leading-tight">
-                Фото скоро
-              </p>
-            </div>
+            {/* Image or placeholder */}
+            {"img" in item && item.img ? (
+              <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
+            ) : (
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-3">
+                {item.emoji && <span className="text-4xl">{item.emoji}</span>}
+                <p className="text-white/40 text-[10px] uppercase tracking-wider text-center leading-tight">
+                  Фото скоро
+                </p>
+              </div>
+            )}
 
             {/* Hover overlay */}
             <div
