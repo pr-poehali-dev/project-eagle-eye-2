@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import WebsitesBlock from "@/components/WebsitesBlock";
+import VkCoversBlock from "@/components/VkCoversBlock";
 import Featured from "@/components/Featured";
 import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
@@ -20,6 +21,7 @@ const Index = () => {
         <Services />
         <Portfolio />
         <WebsitesBlock />
+        <VkCoversBlock />
         <Featured />
         <Footer />
       </main>
