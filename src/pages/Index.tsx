@@ -1,16 +1,14 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Featured from "@/components/Featured";
-import Promo from "@/components/Promo";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" style={{ background: "#080d1a" }}>
       <Header />
       <Hero />
       <Featured />
-      <Promo />
       <Footer />
     </main>
   );
