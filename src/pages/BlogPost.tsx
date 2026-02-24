@@ -61,6 +61,11 @@ export default function BlogPost() {
     setMeta('meta[name="twitter:title"]', seoTitle);
     setMeta('meta[name="twitter:description"]', seoDesc);
     setMeta('meta[name="twitter:image"]', post.image);
+    if (post.seoKeywords) {
+      let kw = document.querySelector('meta[name="keywords"]');
+      if (!kw) { kw = document.createElement("meta"); (kw as HTMLMetaElement).name = "keywords"; document.head.appendChild(kw); }
+      kw.setAttribute("content", post.seoKeywords);
+    }
 
     return () => { document.title = prevTitle; };
   }, [post]);
