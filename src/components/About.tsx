@@ -22,9 +22,7 @@ const About = () => {
           </div>
 
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
-              Привет! Стрельцов Иван
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">Привет! Меня зовут Стрельцов Иван</h2>
             <p className="text-lg text-gray-300 leading-relaxed">
               Делаю дизайн для бизнеса с помощью нейросетей.
             </p>
