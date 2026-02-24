@@ -4,8 +4,10 @@ import Icon from "@/components/ui/icon";
 
 const navItems = [
   { label: "Услуги", href: "#услуги" },
+  { label: "Маркетплейсы", href: "#маркетплейсы" },
+  { label: "Сайты", href: "#сайты" },
+  { label: "Логотипы", href: "#логотипы" },
   { label: "Портфолио", href: "#портфолио" },
-  { label: "Обо мне", href: "#о нас" },
   { label: "Блог", href: "/blog" },
   { label: "Контакты", href: "#контакты" },
 ];

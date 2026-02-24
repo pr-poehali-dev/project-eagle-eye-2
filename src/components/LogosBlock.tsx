@@ -29,6 +29,7 @@ const niches = [
 export default function LogosBlock() {
   return (
     <section
+      id="логотипы"
       className="py-16 px-6 md:px-12 lg:px-20 relative overflow-hidden"
       style={{ background: "linear-gradient(135deg, #080d1a 0%, #060c18 100%)" }}
     >
