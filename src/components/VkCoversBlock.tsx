@@ -57,6 +57,16 @@ export default function VkCoversBlock() {
           />
         </div>
 
+        {/* Hero image */}
+        <div className="rounded-2xl overflow-hidden mb-8" style={{ border: "1px solid rgba(0,170,255,0.15)" }}>
+          <img
+            src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/5f9abddd-119e-44cd-b126-e123c2925853.jpg"
+            alt="Обложки для групп ВК"
+            className="w-full object-cover"
+            style={{ maxHeight: "380px" }}
+          />
+        </div>
+
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {/* Benefits */}
           <div
