@@ -78,18 +78,20 @@ export default function Footer() {
       </div>
 
       {/* Big STRELTSOV text — прижат к низу без отступа снизу */}
-      <h2
-        className="text-[16vw] sm:text-[14vw] lg:text-[12vw] leading-[0.8] font-extrabold tracking-tight uppercase block"
-        style={{
-          background: "linear-gradient(135deg, #ffffff 0%, #003388 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-          marginBottom: "-0.15em",
-        }}
-      >
-        STRELTSOV
-      </h2>
+      <div className="overflow-hidden">
+        <h2
+          className="text-[13.5vw] sm:text-[14vw] lg:text-[12vw] leading-[0.85] font-extrabold tracking-tight uppercase block"
+          style={{
+            background: "linear-gradient(135deg, #ffffff 0%, #003388 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            marginBottom: "-0.1em",
+          }}
+        >
+          STRELTSOV
+        </h2>
+      </div>
     </footer>
   );
 }
