@@ -6,7 +6,7 @@ interface HeaderProps {
 
 export default function Header({ className }: HeaderProps) {
   return (
-    <header className={`absolute top-0 left-0 right-0 z-50 px-6 md:px-12 py-4 ${className ?? ""}`}>
+    <header className={`absolute top-0 left-0 right-0 z-50 px-6 md:px-12 py-4 ${className ?? ""}`} style={{ background: "linear-gradient(to bottom, rgba(5,12,26,0.85) 0%, transparent 100%)" }}>
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center gap-3">
