@@ -59,6 +59,16 @@ export default function WebsitesBlock() {
           />
         </div>
 
+        {/* Hero image */}
+        <div className="rounded-2xl overflow-hidden mb-8" style={{ border: "1px solid rgba(0,170,255,0.15)" }}>
+          <img
+            src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/e9a15771-6836-4e0e-8ffe-47531f1a3d90.jpg"
+            alt="Сайты через нейросети"
+            className="w-full object-cover"
+            style={{ maxHeight: "380px" }}
+          />
+        </div>
+
         <div className="grid md:grid-cols-3 gap-8">
           {/* Benefits */}
           <div
