@@ -5,6 +5,7 @@ import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import WebsitesBlock from "@/components/WebsitesBlock";
 import VkCoversBlock from "@/components/VkCoversBlock";
+import MarketCardsBlock from "@/components/MarketCardsBlock";
 import LogosBlock from "@/components/LogosBlock";
 import HowItWorks from "@/components/HowItWorks";
 import Pricing from "@/components/Pricing";
@@ -27,6 +28,7 @@ const Index = () => {
         <Services />
         <Portfolio />
         <WebsitesBlock />
+        <MarketCardsBlock />
         <VkCoversBlock />
         <LogosBlock />
         <HowItWorks />
