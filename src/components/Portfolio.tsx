@@ -30,6 +30,17 @@ export default function Portfolio() {
   const [lightbox, setLightbox] = useState<Item | null>(null);
 
   const filtered = active === "Все" ? items : items.filter((i) => i.cat === active);
+  const withImg = items.filter((i) => i.img);
+
+  const openLightbox = (item: Item) => { if (item.img) setLightbox(item); };
+
+  const navigate = (dir: 1 | -1, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!lightbox) return;
+    const idx = withImg.findIndex((i) => i.id === lightbox.id);
+    const next = withImg[(idx + dir + withImg.length) % withImg.length];
+    setLightbox(next);
+  };
 
   return (
     <section id="портфолио" className="py-16 px-6 md:px-12 lg:px-20" style={{ background: "#060c18" }}>
@@ -71,7 +82,7 @@ export default function Portfolio() {
         {filtered.map((item) => (
           <div
             key={item.id}
-            onClick={() => item.img && setLightbox(item)}
+            onClick={() => openLightbox(item)}
             className="group relative rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
             style={{
               background: item.color,
@@ -122,13 +133,33 @@ export default function Portfolio() {
           >
             <Icon name="X" size={32} />
           </button>
+
+          {/* Prev */}
+          <button
+            className="absolute left-3 md:left-6 text-white/60 hover:text-white transition-colors p-2 rounded-full"
+            style={{ background: "rgba(255,255,255,0.08)" }}
+            onClick={(e) => navigate(-1, e)}
+          >
+            <Icon name="ChevronLeft" size={32} />
+          </button>
+
           <img
             src={lightbox.img}
             alt={lightbox.title}
-            className="max-w-full max-h-[90vh] rounded-2xl object-contain"
+            className="max-w-full max-h-[85vh] rounded-2xl object-contain"
             style={{ boxShadow: "0 0 60px rgba(0,170,255,0.2)" }}
             onClick={e => e.stopPropagation()}
           />
+
+          {/* Next */}
+          <button
+            className="absolute right-3 md:right-6 text-white/60 hover:text-white transition-colors p-2 rounded-full"
+            style={{ background: "rgba(255,255,255,0.08)" }}
+            onClick={(e) => navigate(1, e)}
+          >
+            <Icon name="ChevronRight" size={32} />
+          </button>
+
           <p className="absolute bottom-6 text-white/60 text-sm">{lightbox.title}</p>
         </div>
       )}
