@@ -70,6 +70,7 @@ export default function LogosBlock() {
             src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/34dc51d9-5e2d-493b-991d-d44bb37ba83d.jpg"
             alt="Логотипы и брендинг — портфолио"
             className="w-full object-cover"
+            style={{ maxHeight: "380px" }}
           />
         </div>
 
