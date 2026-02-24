@@ -1,0 +1,147 @@
+import { useParams, Link } from "react-router-dom";
+import { blogPosts, categoryColors } from "@/data/blogData";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+export default function BlogPost() {
+  const { slug } = useParams<{ slug: string }>();
+  const post = blogPosts.find(p => p.slug === slug);
+
+  if (!post) {
+    return (
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "#0a0e1a" }}>
+        <div className="text-center">
+          <p className="text-white text-2xl font-bold mb-4">Статья не найдена</p>
+          <Link to="/blog" className="text-[#00d4ff] hover:underline">← Вернуться в блог</Link>
+        </div>
+      </div>
+    );
+  }
+
+  const related = blogPosts.filter(p => p.id !== post.id).slice(0, 3);
+
+  return (
+    <div className="min-h-screen" style={{ background: "#0a0e1a" }}>
+      <Header />
+
+      <article className="pt-28 pb-20 px-6 max-w-3xl mx-auto">
+        {/* Back */}
+        <Link to="/blog" className="inline-flex items-center gap-2 text-[#64748b] hover:text-[#00d4ff] text-sm mb-8 transition-colors">
+          ← Назад в блог
+        </Link>
+
+        {/* Meta */}
+        <div className="flex items-center gap-3 mb-5">
+          <span
+            className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+            style={{ background: categoryColors[post.category], color: "#0a0e1a" }}
+          >
+            {post.category}
+          </span>
+          <span className="text-[#64748b] text-sm">📅 {post.date}</span>
+          <span className="text-[#64748b] text-sm">⏱ {post.readTime} мин чтения</span>
+        </div>
+
+        {/* Title */}
+        <h1 className="text-white font-extrabold text-3xl md:text-4xl leading-tight mb-8">
+          {post.title}
+        </h1>
+
+        {/* Cover */}
+        <div className="rounded-2xl overflow-hidden mb-10"
+          style={{ boxShadow: "0 0 40px rgba(0,212,255,0.1)" }}>
+          <img src={post.image} alt={post.title} className="w-full object-cover" />
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-col gap-6">
+          {post.content.map((section, i) => {
+            if (section.type === "paragraph") {
+              return <p key={i} className="text-[#94a3b8] text-lg leading-relaxed">{section.text}</p>;
+            }
+            if (section.type === "heading") {
+              return <h2 key={i} className="text-white font-bold text-xl md:text-2xl mt-4">{section.text}</h2>;
+            }
+            if (section.type === "highlight") {
+              return (
+                <div key={i} className="rounded-xl p-5"
+                  style={{ background: "#1e293b", borderLeft: "3px solid #00d4ff" }}>
+                  <p className="text-white/90 text-base leading-relaxed">{section.text}</p>
+                </div>
+              );
+            }
+            if (section.type === "list" && section.items) {
+              return (
+                <ul key={i} className="flex flex-col gap-2">
+                  {section.items.map((item, j) => (
+                    <li key={j} className="flex items-start gap-3 text-[#94a3b8] text-base">
+                      <span className="text-[#00d4ff] mt-1 shrink-0">→</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              );
+            }
+            if (section.type === "image" && section.src) {
+              return (
+                <div key={i} className="rounded-xl overflow-hidden">
+                  <img src={section.src} alt={section.alt || ""} className="w-full object-cover" />
+                </div>
+              );
+            }
+            return null;
+          })}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-14 rounded-2xl p-8 text-center"
+          style={{ background: "linear-gradient(135deg, #111827, #0d1a2e)", border: "1px solid rgba(0,212,255,0.2)" }}>
+          <p className="text-2xl font-extrabold text-white mb-2">🔥 Хотите такой же результат?</p>
+          <p className="text-[#94a3b8] mb-6">Сделаю дизайн для вашего бизнеса.<br />Первый макет бесплатно за 24 часа.</p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <a href="https://vk.com/streltsov_digital" target="_blank" rel="noopener noreferrer"
+              className="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider text-white transition-all hover:opacity-90"
+              style={{ background: "#0077ff" }}>
+              Написать в ВК
+            </a>
+            <a href="https://t.me/streltsov_digital" target="_blank" rel="noopener noreferrer"
+              className="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all hover:opacity-90"
+              style={{ background: "#00d4ff", color: "#0a0e1a" }}>
+              Написать в Telegram
+            </a>
+          </div>
+        </div>
+
+        {/* Related */}
+        {related.length > 0 && (
+          <div className="mt-14">
+            <h3 className="text-white font-bold text-xl mb-6">Читайте также:</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {related.map(r => (
+                <Link key={r.id} to={`/blog/${r.slug}`}
+                  className="group rounded-xl overflow-hidden transition-all hover:-translate-y-1"
+                  style={{ background: "#111827", border: "1px solid #1e293b" }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#00d4ff"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "#1e293b"; }}
+                >
+                  <img src={r.image} alt={r.title}
+                    className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    style={{ aspectRatio: "16/9" }} />
+                  <div className="p-4">
+                    <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full mb-2 inline-block"
+                      style={{ background: categoryColors[r.category], color: "#0a0e1a" }}>
+                      {r.category}
+                    </span>
+                    <p className="text-white text-sm font-semibold leading-snug line-clamp-2">{r.title}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+      </article>
+
+      <Footer />
+    </div>
+  );
+}

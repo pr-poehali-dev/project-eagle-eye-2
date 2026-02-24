@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const navItems = [
   { label: "Услуги", href: "#услуги" },
   { label: "Портфолио", href: "#портфолио" },
   { label: "Обо мне", href: "#о нас" },
+  { label: "Блог", href: "/blog" },
   { label: "Контакты", href: "#контакты" },
 ];
 
@@ -14,12 +16,24 @@ interface HeaderProps {
 
 export default function Header({ className }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleNav = (href: string) => {
     setMobileOpen(false);
+    if (href.startsWith("/")) {
+      navigate(href);
+      return;
+    }
     const id = href.replace("#", "");
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
   };
 
   return (

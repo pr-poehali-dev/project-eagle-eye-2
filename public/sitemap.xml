@@ -36,4 +36,54 @@
     <priority>0.8</priority>
   </url>
 
+
+  <url>
+    <loc>https://streltsovdigital.ru/blog</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://streltsovdigital.ru/blog/kak-sdelat-kartochku-ozon-kotoraya-prodaet</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://streltsovdigital.ru/blog/neyroseti-v-dizayne-mif-ili-realnost</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://streltsovdigital.ru/blog/meny-dlya-cafe-kak-uvelichit-sredniy-chek</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://streltsovdigital.ru/blog/logotip-za-1-den-kak-eto-vozmozhno</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://streltsovdigital.ru/blog/keys-kofeynya-kartochki-wildberries</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://streltsovdigital.ru/blog/gaid-oblozhki-vk-dlya-biznesa</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
