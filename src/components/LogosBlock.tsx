@@ -68,7 +68,7 @@ export default function LogosBlock() {
           style={{ boxShadow: "0 0 60px rgba(0,100,255,0.15), 0 0 0 1px rgba(255,255,255,0.06)" }}
         >
           <img
-            src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/34dc51d9-5e2d-493b-991d-d44bb37ba83d.jpg"
+            src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/0ef27d28-1090-4293-9d00-1f1f17b53554.jpg"
             alt="Логотипы и брендинг — портфолио"
             className="w-full object-cover"
             style={{ maxHeight: "380px" }}
