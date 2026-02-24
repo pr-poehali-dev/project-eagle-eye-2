@@ -6,12 +6,12 @@ export default function Footer() {
       className="relative"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
-      <div className="relative h-[calc(100vh+500px)] -top-[100vh]">
+      <div className="relative h-[calc(100vh+320px)] -top-[100vh]">
         <div
-          className="h-[500px] sticky top-[calc(100vh-500px)]"
+          className="h-[320px] sticky top-[calc(100vh-320px)]"
           style={{ background: "linear-gradient(145deg, #07101f, #060c18)" }}
         >
-          <div className="px-6 md:px-12 py-10 h-full w-full flex flex-col justify-between">
+          <div className="px-6 md:px-12 py-8 h-full w-full flex flex-col justify-between">
 
             {/* Top row: logo + nav columns */}
             <div className="flex flex-col sm:flex-row justify-between gap-8">
