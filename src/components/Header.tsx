@@ -9,19 +9,19 @@ export default function Header({ className }: HeaderProps) {
     <header className={`absolute top-0 left-0 right-0 z-50 px-6 md:px-12 py-4 ${className ?? ""}`}>
       <div className="flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-3">
           <div
-            className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
+            className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
             style={{
-              background: "linear-gradient(135deg, #0055ff, #00aaff)",
-              boxShadow: "0 0 16px rgba(0, 170, 255, 0.6)",
+              background: "linear-gradient(135deg, #0044dd, #00aaff)",
+              boxShadow: "0 0 18px rgba(0, 170, 255, 0.55)",
             }}
           >
-            <Icon name="Zap" size={18} className="text-white" />
+            <Icon name="Zap" size={20} className="text-white" />
           </div>
-          <div className="text-white font-bold text-sm leading-tight">
-            <div>Streltsov</div>
-            <div style={{ color: "#00aaff" }}>Digital</div>
+          <div className="font-bold leading-tight">
+            <div className="text-white text-base">Streltsov</div>
+            <div className="text-base" style={{ color: "#00aaff" }}>Digital</div>
           </div>
         </div>
 
