@@ -1,3 +1,7 @@
+const scrollTo = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+};
+
 export default function Hero() {
   return (
     <div
@@ -79,8 +83,8 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-wrap gap-3">
-          <a
-            href="#contact"
+          <button
+            onClick={() => scrollTo("контакты")}
             className="inline-block font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
             style={{
               fontSize: "clamp(0.65rem, 1vw, 0.8rem)",
@@ -90,12 +94,13 @@ export default function Hero() {
               color: "#00aaff",
               borderRadius: "4px",
               boxShadow: "0 0 28px rgba(0,170,255,0.3), inset 0 0 28px rgba(0,170,255,0.06)",
+              cursor: "pointer",
             }}
           >
             Обсудить проект
-          </a>
-          <a
-            href="#portfolio"
+          </button>
+          <button
+            onClick={() => scrollTo("портфолио")}
             className="inline-block font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
             style={{
               fontSize: "clamp(0.65rem, 1vw, 0.8rem)",
@@ -104,10 +109,11 @@ export default function Hero() {
               border: "2px solid rgba(255,255,255,0.2)",
               color: "rgba(255,255,255,0.85)",
               borderRadius: "4px",
+              cursor: "pointer",
             }}
           >
             Смотреть портфолио
-          </a>
+          </button>
         </div>
       </div>
     </div>
