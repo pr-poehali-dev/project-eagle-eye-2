@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://streltsov.digital/sitemap.xml
+Sitemap: https://streltsovdigital.ru/sitemap.xml
