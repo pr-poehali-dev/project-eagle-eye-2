@@ -57,26 +57,58 @@ export default function Hero() {
             textShadow: "0 2px 30px rgba(0,60,180,0.35)",
           }}
         >
-          ПРОДАЮЩИЕ<br />
-          КАРТОЧКИ ДЛЯ<br />
-          МАРКЕТПЛЕЙСОВ
+          Дизайн для бизнеса<br />
+          через нейросети
         </h1>
 
-        <a
-          href="#contact"
-          className="inline-block font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
-          style={{
-            fontSize: "clamp(0.65rem, 1vw, 0.8rem)",
-            padding: "clamp(10px, 1.3vw, 15px) clamp(22px, 3.2vw, 38px)",
-            background: "transparent",
-            border: "2px solid #00aaff",
-            color: "#00aaff",
-            borderRadius: "4px",
-            boxShadow: "0 0 28px rgba(0,170,255,0.3), inset 0 0 28px rgba(0,170,255,0.06)",
-          }}
+        {/* Services list */}
+        <p className="text-white/60 text-sm md:text-base mb-2 leading-relaxed">
+          Карточки товаров&nbsp;•&nbsp;Сайты&nbsp;•&nbsp;Меню для кафе
+        </p>
+        <p className="text-white/60 text-sm md:text-base mb-6 leading-relaxed">
+          Обложки ВК&nbsp;•&nbsp;Визуал для соцсетей&nbsp;•&nbsp;Брендинг
+        </p>
+
+        {/* Tagline */}
+        <p
+          className="text-white/80 text-sm md:text-base font-medium mb-8 leading-snug"
+          style={{ textShadow: "0 0 20px rgba(0,150,255,0.3)" }}
         >
-          Обсудить проект
-        </a>
+          Быстрее фрилансера.&nbsp;Дешевле агентства.&nbsp;Круче шаблонов.
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-wrap gap-3">
+          <a
+            href="#contact"
+            className="inline-block font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
+            style={{
+              fontSize: "clamp(0.65rem, 1vw, 0.8rem)",
+              padding: "clamp(10px, 1.3vw, 15px) clamp(22px, 3.2vw, 38px)",
+              background: "transparent",
+              border: "2px solid #00aaff",
+              color: "#00aaff",
+              borderRadius: "4px",
+              boxShadow: "0 0 28px rgba(0,170,255,0.3), inset 0 0 28px rgba(0,170,255,0.06)",
+            }}
+          >
+            Обсудить проект
+          </a>
+          <a
+            href="#portfolio"
+            className="inline-block font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
+            style={{
+              fontSize: "clamp(0.65rem, 1vw, 0.8rem)",
+              padding: "clamp(10px, 1.3vw, 15px) clamp(22px, 3.2vw, 38px)",
+              background: "rgba(255,255,255,0.07)",
+              border: "2px solid rgba(255,255,255,0.2)",
+              color: "rgba(255,255,255,0.85)",
+              borderRadius: "4px",
+            }}
+          >
+            Смотреть портфолио
+          </a>
+        </div>
       </div>
     </div>
   );
