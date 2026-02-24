@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { blogPosts, categoryColors, BlogCategory } from "@/data/blogData";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const BLOG_OG_IMAGE = "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/728a99ce-7b2c-480e-90ac-8d1d975ee062.jpg";
+const BLOG_TITLE = "Блог Стрельцов Digital — Дизайн, маркетплейсы, нейросети, брендинг";
+const BLOG_DESC = "Блог о дизайне через нейросети. Карточки для маркетплейсов Ozon Wildberries, электронные меню для кафе и ресторанов, логотипы и брендинг, обложки ВК, создание сайтов через AI. Бесплатные гайды и кейсы от Стрельцов Digital.";
 
 const filters: ("Все" | BlogCategory)[] = ["Все", "Дизайн", "Нейросети", "Маркетплейсы", "Кафе", "Брендинг", "Кейс", "Гайд"];
 
@@ -11,6 +15,27 @@ const INITIAL_COUNT = 6;
 export default function Blog() {
   const [active, setActive] = useState<"Все" | BlogCategory>("Все");
   const [visible, setVisible] = useState(INITIAL_COUNT);
+
+  useEffect(() => {
+    const prev = { title: document.title, desc: document.querySelector('meta[name="description"]')?.getAttribute("content") };
+    document.title = BLOG_TITLE;
+    const setMeta = (sel: string, attr: string, val: string) => {
+      const el = document.querySelector(sel);
+      if (el) el.setAttribute(attr, val);
+    };
+    setMeta('meta[name="description"]', "content", BLOG_DESC);
+    setMeta('meta[property="og:title"]', "content", BLOG_TITLE);
+    setMeta('meta[property="og:description"]', "content", BLOG_DESC);
+    setMeta('meta[property="og:image"]', "content", BLOG_OG_IMAGE);
+    setMeta('meta[property="og:url"]', "content", "https://streltsovdigital.ru/blog");
+    setMeta('meta[name="twitter:title"]', "content", BLOG_TITLE);
+    setMeta('meta[name="twitter:description"]', "content", BLOG_DESC);
+    setMeta('meta[name="twitter:image"]', "content", BLOG_OG_IMAGE);
+    return () => {
+      document.title = prev.title ?? "";
+      if (prev.desc) setMeta('meta[name="description"]', "content", prev.desc);
+    };
+  }, []);
 
   const filtered = active === "Все" ? blogPosts : blogPosts.filter(p => p.category === active);
   const shown = filtered.slice(0, visible);
