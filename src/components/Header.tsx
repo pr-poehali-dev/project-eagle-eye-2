@@ -4,7 +4,7 @@ import Icon from "@/components/ui/icon";
 const navItems = [
   { label: "Услуги", href: "#услуги" },
   { label: "Портфолио", href: "#портфолио" },
-  { label: "О нас", href: "#о нас" },
+  { label: "Обо мне", href: "#о нас" },
   { label: "Контакты", href: "#контакты" },
 ];
 
