@@ -3,6 +3,43 @@ import { blogPosts, categoryColors } from "@/data/blogData";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+function ShareButtons({ title }: { title: string }) {
+  const url = encodeURIComponent(window.location.href);
+  const text = encodeURIComponent(title);
+
+  const share = (href: string) => window.open(href, "_blank", "width=600,height=400");
+
+  return (
+    <div className="flex items-center gap-3 flex-wrap">
+      <span className="text-[#64748b] text-sm">Поделиться:</span>
+      <button
+        onClick={() => share(`https://vk.com/share.php?url=${url}&title=${text}`)}
+        className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-white transition-all hover:opacity-90"
+        style={{ background: "#0077ff" }}
+      >
+        ВКонтакте
+      </button>
+      <button
+        onClick={() => share(`https://t.me/share/url?url=${url}&text=${text}`)}
+        className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:opacity-90"
+        style={{ background: "#29b6f6", color: "#0a0e1a" }}
+      >
+        Telegram
+      </button>
+      <button
+        onClick={() => {
+          navigator.clipboard.writeText(window.location.href);
+          alert("Ссылка скопирована!");
+        }}
+        className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-white transition-all hover:opacity-90"
+        style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)" }}
+      >
+        Скопировать ссылку
+      </button>
+    </div>
+  );
+}
+
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find(p => p.slug === slug);
@@ -43,9 +80,14 @@ export default function BlogPost() {
         </div>
 
         {/* Title */}
-        <h1 className="text-white font-extrabold text-3xl md:text-4xl leading-tight mb-8">
+        <h1 className="text-white font-extrabold text-3xl md:text-4xl leading-tight mb-6">
           {post.title}
         </h1>
+
+        {/* Share top */}
+        <div className="mb-8">
+          <ShareButtons title={post.title} />
+        </div>
 
         {/* Cover */}
         <div className="rounded-2xl overflow-hidden mb-10"
@@ -110,6 +152,11 @@ export default function BlogPost() {
               Написать в Telegram
             </a>
           </div>
+        </div>
+
+        {/* Share bottom */}
+        <div className="mt-10 pt-8 border-t border-white/8">
+          <ShareButtons title={post.title} />
         </div>
 
         {/* Related */}

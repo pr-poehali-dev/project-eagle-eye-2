@@ -39,7 +39,7 @@ export const blogPosts: BlogPost[] = [
     title: "Как сделать карточку для Ozon, которая продаёт",
     description: "Разбираем 7 правил продающей карточки товара. Что видит покупатель в первые секунды и как это влияет на конверсию.",
     category: "Маркетплейсы",
-    date: "15 января 2026",
+    date: "24 февраля 2026",
     readTime: 5,
     image: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/b2e09f6b-ebe8-48c9-a12e-6bb6e7746fb1.jpg",
     content: [
@@ -62,7 +62,7 @@ export const blogPosts: BlogPost[] = [
     title: "Нейросети в дизайне: миф или реальность в 2026",
     description: "Можно ли заменить дизайнера нейросетью? Честный ответ от практика, который работает с AI каждый день.",
     category: "Нейросети",
-    date: "10 февраля 2026",
+    date: "24 февраля 2026",
     readTime: 7,
     image: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/cbde618b-0e84-41f6-8480-f136b2ac598c.jpg",
     content: [
@@ -81,7 +81,7 @@ export const blogPosts: BlogPost[] = [
     title: "Электронное меню для кафе: как увеличить средний чек на 30%",
     description: "Почему визуальное меню работает лучше текстового и как правильно расставить акценты чтобы гости заказывали больше.",
     category: "Кафе",
-    date: "3 февраля 2026",
+    date: "24 февраля 2026",
     readTime: 4,
     image: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/a02377da-e308-47d3-85f4-d0a45e8c607d.jpg",
     content: [
@@ -99,7 +99,7 @@ export const blogPosts: BlogPost[] = [
     title: "Логотип за 1 день: как это возможно и почему это работает",
     description: "Раньше логотип делали 2-3 недели. Теперь 3-5 вариантов за 24 часа. Рассказываю как устроен процесс.",
     category: "Брендинг",
-    date: "20 января 2026",
+    date: "24 февраля 2026",
     readTime: 3,
     image: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/7042dd62-c715-4814-923e-f953f37b7cfa.jpg",
     content: [
@@ -117,7 +117,7 @@ export const blogPosts: BlogPost[] = [
     title: "Кейс: как кофейня увеличила продажи на Wildberries в 2 раза",
     description: "Реальный кейс клиента. Было: 50 продаж в месяц. Стало: 110 продаж после смены карточек.",
     category: "Кейс",
-    date: "8 февраля 2026",
+    date: "24 февраля 2026",
     readTime: 6,
     image: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/657337fb-3199-4597-9165-fe753ab1337b.jpg",
     content: [
