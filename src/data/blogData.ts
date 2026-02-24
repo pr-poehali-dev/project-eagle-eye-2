@@ -127,7 +127,7 @@ export const blogPosts: BlogPost[] = [
     category: "Нейросети",
     date: "24 февраля 2026",
     readTime: 7,
-    image: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/cbde618b-0e84-41f6-8480-f136b2ac598c.jpg",
+    image: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/4d4bd071-7115-4564-953a-3c3732b31f44.jpg",
     content: [
       { type: "paragraph", text: "«AI заменит дизайнеров» — эту фразу я слышу каждый день. И каждый раз отвечаю одно: нет, но изменит полностью. Разберёмся по-честному." },
       { type: "heading", text: "Что AI умеет делать хорошо" },
