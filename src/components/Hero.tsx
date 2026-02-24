@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
     <div
-      className="relative flex items-center overflow-hidden"
+      className="relative flex items-center overflow-hidden pt-20 md:pt-0"
       style={{
         background: "linear-gradient(135deg, #050c1a 0%, #071222 50%, #081830 100%)",
         minHeight: "clamp(380px, 48vw, 600px)",
