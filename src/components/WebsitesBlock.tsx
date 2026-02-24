@@ -7,10 +7,15 @@ const benefits = [
 ];
 
 const siteTypes = [
-  { emoji: "🏠", title: "Лендинг (одностраничник)", price: "от 9 990₽" },
-  { emoji: "🏢", title: "Многостраничный сайт", price: "от 19 990₽" },
-  { emoji: "🛒", title: "Интернет-магазин", price: "от 29 990₽" },
-  { emoji: "📱", title: "Мини-сайт визитка", price: "от 4 990₽" },
+  { emoji: "📱", title: "Визитка (3–5 стр.)", price: "14 000–20 000₽", desc: "Главная, услуги, о нас, контакты", term: "до 5 дней" },
+  { emoji: "🏢", title: "Бизнес-сайт (10–20 стр.)", price: "35 000–50 000₽", desc: "Имидж и детальное описание каждого направления", term: "1–2 недели" },
+  { emoji: "🗂️", title: "Каталог (20+ стр.)", price: "от 80 000₽", desc: "База товаров или услуг с удобной навигацией", term: "от 14 дней" },
+];
+
+const included = [
+  "Адаптация под мобильные устройства",
+  "Генерация уникального контента через ИИ",
+  "Проф SEO-оптимизация",
 ];
 
 const clients = [
@@ -98,7 +103,7 @@ export default function WebsitesBlock() {
 
           {/* Site types */}
           <div
-            className="rounded-2xl p-6"
+            className="rounded-2xl p-6 md:col-span-2"
             style={{
               background: "linear-gradient(145deg, #0d1b2e, #090f1e)",
               border: "1px solid rgba(0,170,255,0.15)",
@@ -109,20 +114,32 @@ export default function WebsitesBlock() {
             </h3>
             <ul className="flex flex-col gap-4">
               {siteTypes.map((s) => (
-                <li key={s.title} className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2.5">
-                    <span className="text-xl">{s.emoji}</span>
-                    <span className="text-white/80 text-sm leading-snug">{s.title}</span>
+                <li key={s.title} className="flex flex-col gap-1 pb-4 border-b border-white/5 last:border-0 last:pb-0">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2.5">
+                      <span className="text-xl">{s.emoji}</span>
+                      <span className="text-white font-semibold text-sm">{s.title}</span>
+                    </div>
+                    <span className="text-sm font-extrabold shrink-0" style={{ color: "#00aaff" }}>
+                      {s.price}
+                    </span>
                   </div>
-                  <span
-                    className="text-xs font-extrabold shrink-0"
-                    style={{ color: "#00aaff" }}
-                  >
-                    {s.price}
-                  </span>
+                  <p className="text-white/50 text-xs pl-8">{s.desc}</p>
+                  <p className="text-white/35 text-xs pl-8">⏳ Срок: {s.term}</p>
                 </li>
               ))}
             </ul>
+            <div className="mt-5 pt-4" style={{ borderTop: "1px solid rgba(0,170,255,0.12)" }}>
+              <p className="text-[#00aaff] text-xs font-semibold uppercase tracking-widest mb-3">В каждый проект входит</p>
+              <ul className="flex flex-col gap-2">
+                {included.map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-white/65 text-xs">
+                    <span className="text-[#00aaff]">—</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* For whom */}
