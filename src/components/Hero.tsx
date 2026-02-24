@@ -7,83 +7,46 @@ export default function Hero() {
         minHeight: "clamp(380px, 48vw, 600px)",
       }}
     >
-      {/* Background glow centre-right */}
+      {/* Background glow — bright blue behind phones */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 65% 85% at 72% 55%, rgba(0,80,220,0.28) 0%, rgba(0,30,100,0.12) 45%, transparent 70%)",
+            "radial-gradient(ellipse 55% 80% at 72% 55%, rgba(0,100,255,0.32) 0%, rgba(0,50,150,0.14) 45%, transparent 70%)",
         }}
       />
 
-      {/* Right side: hero image — covers right 60%, vertically centered */}
-      <div className="absolute right-0 top-0 bottom-0 w-[60%] pointer-events-none overflow-hidden">
+      {/* Right side: hero image — seamlessly blends into bg */}
+      <div className="absolute right-0 top-0 bottom-0 w-[62%] pointer-events-none">
         <img
-          src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/files/706e994d-f22b-458d-92fa-f0cb89f010da.jpg"
+          src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/files/f08de814-4dee-46fe-b5a7-274cb6f4e058.jpg"
           alt="Продающие карточки для маркетплейсов"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-left-top"
+          style={{ mixBlendMode: "lighten" }}
         />
-        {/* Gradient fade: left edge blends into dark bg */}
+        {/* Fade left edge into dark bg */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to right, #050c1a 0%, rgba(5,12,26,0.7) 18%, rgba(5,12,26,0.2) 38%, transparent 60%)",
+              "linear-gradient(to right, #060d1f 0%, rgba(6,13,31,0.75) 15%, rgba(6,13,31,0.2) 35%, transparent 55%)",
           }}
         />
-        {/* Gradient fade: bottom */}
+        {/* Fade bottom */}
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "linear-gradient(to top, #050c1a 0%, transparent 20%)",
+            background: "linear-gradient(to top, #060d1f 0%, transparent 18%)",
           }}
         />
-      </div>
-
-      {/* ТОП ПРОДАЖ badge — top centre */}
-      <div
-        className="absolute top-[10%] left-[50%] -translate-x-1/2 px-3 py-2 rounded-full text-white text-[9px] font-extrabold uppercase tracking-wider text-center leading-tight z-10 hidden md:flex flex-col items-center"
-        style={{
-          background: "linear-gradient(135deg, rgba(0,50,160,0.95), rgba(0,130,255,0.85))",
-          border: "1.5px solid rgba(0,180,255,0.7)",
-          boxShadow: "0 0 22px rgba(0,150,255,0.6), inset 0 0 12px rgba(0,180,255,0.2)",
-        }}
-      >
-        ТОП<br />ПРОДАЖ
-      </div>
-
-      {/* ТОП ПРОДАЖ badge — bottom right */}
-      <div
-        className="absolute bottom-[10%] right-[6%] px-3 py-2 rounded-full text-white text-[9px] font-extrabold uppercase tracking-wider text-center leading-tight z-10 hidden md:flex flex-col items-center"
-        style={{
-          background: "linear-gradient(135deg, rgba(0,50,160,0.95), rgba(0,130,255,0.85))",
-          border: "1.5px solid rgba(0,180,255,0.7)",
-          boxShadow: "0 0 22px rgba(0,150,255,0.6), inset 0 0 12px rgba(0,180,255,0.2)",
-        }}
-      >
-        ТОП<br />ПРОДАЖ
-      </div>
-
-      {/* Diamond decorations */}
-      {[
-        { top: "15%", right: "55%", size: 10 },
-        { top: "72%", right: "57%", size: 7 },
-        { top: "30%", right: "5%",  size: 9 },
-        { top: "58%", right: "40%", size: 6 },
-        { top: "20%", right: "28%", size: 7 },
-      ].map((d, i) => (
+        {/* Fade top */}
         <div
-          key={i}
-          className="absolute rotate-45 hidden md:block z-10"
+          className="absolute inset-0"
           style={{
-            top: d.top, right: d.right,
-            width: d.size, height: d.size,
-            background: "rgba(0,180,255,0.75)",
-            boxShadow: "0 0 12px rgba(0,200,255,0.9)",
+            background: "linear-gradient(to bottom, #060d1f 0%, transparent 12%)",
           }}
         />
-      ))}
+      </div>
 
       {/* Left content */}
       <div className="relative z-10 px-6 md:px-12 lg:px-16 w-full md:max-w-[46%]">

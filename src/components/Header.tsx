@@ -11,7 +11,7 @@ export default function Header({ className }: HeaderProps) {
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div
-            className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+            className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
             style={{
               background: "linear-gradient(135deg, #0044dd, #00aaff)",
               boxShadow: "0 0 18px rgba(0, 170, 255, 0.55)",
