@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <section className="py-20 px-4" style={{ background: "#080d1a" }}>
+    <section id="о нас" className="py-20 px-4" style={{ background: "#080d1a" }}>
       <div className="max-w-5xl mx-auto">
         <p className="text-xs font-bold tracking-widest text-gray-500 uppercase mb-10">
           ОБО МНЕ
