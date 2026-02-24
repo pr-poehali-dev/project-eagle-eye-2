@@ -1,5 +1,12 @@
 const scrollTo = (id: string) => {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  } else {
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }, 150);
+  }
 };
 
 export default function Hero() {
@@ -85,7 +92,7 @@ export default function Hero() {
         <div className="flex flex-wrap gap-3">
           <button
             onClick={() => scrollTo("контакты")}
-            className="inline-block font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
+            className="font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
             style={{
               fontSize: "clamp(0.65rem, 1vw, 0.8rem)",
               padding: "clamp(10px, 1.3vw, 15px) clamp(22px, 3.2vw, 38px)",
@@ -101,7 +108,7 @@ export default function Hero() {
           </button>
           <button
             onClick={() => scrollTo("портфолио")}
-            className="inline-block font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
+            className="font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
             style={{
               fontSize: "clamp(0.65rem, 1vw, 0.8rem)",
               padding: "clamp(10px, 1.3vw, 15px) clamp(22px, 3.2vw, 38px)",
