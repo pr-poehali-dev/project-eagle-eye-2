@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const plans = [
@@ -54,6 +55,25 @@ const bullets = [
 
 export default function SocialVisualBlock() {
   const [hovered, setHovered] = useState<number | null>(null);
+  const navigate = useNavigate();
+
+  const goToContacts = (planName: string) => {
+    const el = document.getElementById("контакты");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => document.getElementById("контакты")?.scrollIntoView({ behavior: "smooth" }), 100);
+    }
+    setTimeout(() => {
+      const textarea = document.querySelector<HTMLTextAreaElement>("#контакты textarea");
+      if (textarea) {
+        textarea.value = `Хочу заказать: ${planName}`;
+        textarea.dispatchEvent(new Event("input", { bubbles: true }));
+        textarea.focus();
+      }
+    }, 600);
+  };
 
   return (
     <section
@@ -152,6 +172,7 @@ export default function SocialVisualBlock() {
               </ul>
 
               <button
+                onClick={() => goToContacts(`${plan.name} — ${plan.price}`)}
                 className="mt-2 w-full py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300"
                 style={{
                   background: hovered === i ? plan.color : "transparent",
