@@ -65,10 +65,19 @@ export default function Footer() {
                 <div className="text-white" style={{ fontSize: "1.05rem" }}>Streltsov</div>
                 <div className="flex items-center gap-1" style={{ color: "#2b9fff", fontSize: "1.05rem" }}>
                   Digital
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, marginTop: "1px" }}>
-                    <circle cx="12" cy="12" r="12" fill="#1D9BF0"/>
-                    <path d="M9.5 16.5L5.5 12.5L6.91 11.09L9.5 13.67L17.09 6.08L18.5 7.5L9.5 16.5Z" fill="white"/>
-                  </svg>
+                  <span className="relative group" style={{ display: "inline-flex" }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, marginTop: "1px", cursor: "pointer" }}>
+                      <circle cx="12" cy="12" r="12" fill="#1D9BF0"/>
+                      <path d="M9.5 16.5L5.5 12.5L6.91 11.09L9.5 13.67L17.09 6.08L18.5 7.5L9.5 16.5Z" fill="white"/>
+                    </svg>
+                    <span
+                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 rounded-md text-white text-xs font-semibold whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                      style={{ background: "#1D9BF0", boxShadow: "0 4px 14px rgba(29,155,240,0.5)" }}
+                    >
+                      ✓ Verified Business
+                      <span className="absolute top-full left-1/2 -translate-x-1/2" style={{ width: 0, height: 0, borderLeft: "5px solid transparent", borderRight: "5px solid transparent", borderTop: "5px solid #1D9BF0" }} />
+                    </span>
+                  </span>
                 </div>
               </div>
             </div>
