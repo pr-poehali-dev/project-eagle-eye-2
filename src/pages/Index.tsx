@@ -14,6 +14,7 @@ import Stats from "@/components/Stats";
 import FAQ from "@/components/FAQ";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
+import VkBanner from "@/components/VkBanner";
 import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
 
@@ -39,6 +40,7 @@ const Index = () => {
         <FAQ />
         <About />
         <Contact />
+        <VkBanner />
         <Footer />
       </main>
     </>
