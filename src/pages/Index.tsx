@@ -7,6 +7,7 @@ import WebsitesBlock from "@/components/WebsitesBlock";
 import VkCoversBlock from "@/components/VkCoversBlock";
 import MarketCardsBlock from "@/components/MarketCardsBlock";
 import LogosBlock from "@/components/LogosBlock";
+import SocialVisualBlock from "@/components/SocialVisualBlock";
 import HowItWorks from "@/components/HowItWorks";
 import Pricing from "@/components/Pricing";
 import Stats from "@/components/Stats";
@@ -31,6 +32,7 @@ const Index = () => {
         <MarketCardsBlock />
         <VkCoversBlock />
         <LogosBlock />
+        <SocialVisualBlock />
         <HowItWorks />
         <Pricing />
         <Stats />
