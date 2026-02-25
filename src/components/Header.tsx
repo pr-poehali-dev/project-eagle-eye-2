@@ -59,7 +59,13 @@ export default function Header({ className }: HeaderProps) {
             </div>
             <div className="font-bold leading-snug">
               <div className="text-white" style={{ fontSize: "1.05rem" }}>Streltsov</div>
-              <div style={{ color: "#2b9fff", fontSize: "1.05rem" }}>Digital</div>
+              <div className="flex items-center gap-1" style={{ color: "#2b9fff", fontSize: "1.05rem" }}>
+                Digital
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, marginTop: "1px" }}>
+                  <circle cx="12" cy="12" r="12" fill="#1D9BF0"/>
+                  <path d="M9.5 16.5L5.5 12.5L6.91 11.09L9.5 13.67L17.09 6.08L18.5 7.5L9.5 16.5Z" fill="white"/>
+                </svg>
+              </div>
             </div>
           </div>
 
