@@ -31,7 +31,7 @@ export default function VkBanner() {
               style={{ boxShadow: "0 0 0 2px rgba(0,119,255,0.6), 0 0 20px rgba(0,100,255,0.3)" }}
             >
               <img
-                src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/logo.png"
+                src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/c8bf166f-e962-4c01-983e-5fe632cdace3.jpg"
                 alt="Streltsov Digital"
                 className="w-full h-full object-cover"
                 onError={e => {
