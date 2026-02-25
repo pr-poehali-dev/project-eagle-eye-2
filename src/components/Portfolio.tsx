@@ -31,6 +31,11 @@ const items: Item[] = [
   { id: 15, title: "Сила — фитнес", cat: "Визуал", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/c73faa86-5c79-41ab-af21-6ea16e106bdf.jpg", color: "#120d08" },
   { id: 25, title: "Bloom — цветочный", cat: "Визуал", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/01281705-35ee-4222-9476-d0d4412d52c8.jpg", color: "#150a10" },
   { id: 26, title: "Boss Burger — ресторан", cat: "Визуал", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/ee4c4225-44ee-4c25-8175-aa1e5badb155.jpg", color: "#1a0500" },
+  { id: 27, title: "Зёрна — кофейня", cat: "Брендинг", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/9cc1977c-dc58-49e5-bc9d-413f9d6e9a87.jpg", color: "#150f08" },
+  { id: 28, title: "Blade — барбершоп", cat: "Брендинг", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/e0d8d27b-5759-4aba-856c-f2c9e8ca67a2.jpg", color: "#0d0a08" },
+  { id: 29, title: "Roma Pizza", cat: "Брендинг", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/d9739ce8-d705-4537-a0ed-1d76e8b30974.jpg", color: "#1a0500" },
+  { id: 30, title: "Bloom — цветочный", cat: "Брендинг", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/40620215-e09a-4d39-bcf0-b792abe216f8.jpg", color: "#150a10" },
+  { id: 31, title: "Сила — фитнес", cat: "Брендинг", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/3803bd7d-32cb-4051-b836-3fae7bdbd554.jpg", color: "#0d0a05" },
 ];
 
 export default function Portfolio() {
