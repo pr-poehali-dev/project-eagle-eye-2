@@ -1,9 +1,10 @@
-import { useLang } from "@/context/LanguageContext";
+const steps = [
+  { title: "ПИШЕТЕ МНЕ", desc: "Рассказываете что нужно — сайт, карточки, меню или обложку" },
+  { title: "БЕСПЛАТНЫЙ МАКЕТ ЗА 24 ЧАСА", desc: "Показываю первый вариант — если не нравится, не платите" },
+  { title: "ДОДЕЛЫВАЮ И ОТДАЮ", desc: "Вношу правки, финализирую и отдаю готовые файлы" },
+];
 
 export default function HowItWorks() {
-  const { t } = useLang();
-  const h = t.how;
-
   return (
     <section
       id="как-работаю"
@@ -12,12 +13,12 @@ export default function HowItWorks() {
     >
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">{h.tag}</p>
+          <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">Процесс</p>
           <h2
             className="text-white font-extrabold uppercase text-3xl md:text-4xl tracking-tight"
             style={{ textShadow: "0 0 40px rgba(0,120,255,0.25)" }}
           >
-            {h.title}
+            Как я работаю
           </h2>
           <div
             className="mt-4 mx-auto w-16 h-[2px]"
@@ -26,7 +27,7 @@ export default function HowItWorks() {
         </div>
 
         <div className="flex flex-col items-center gap-0">
-          {h.steps.map((step, i) => {
+          {steps.map((step, i) => {
             const highlight = i === 1;
             return (
               <div key={i} className="flex flex-col items-center w-full">
@@ -63,7 +64,7 @@ export default function HowItWorks() {
                   </div>
                 </div>
 
-                {i < h.steps.length - 1 && (
+                {i < steps.length - 1 && (
                   <div className="flex flex-col items-center my-2">
                     <div className="w-[2px] h-5" style={{ background: "rgba(0,170,255,0.25)" }} />
                     <div

@@ -1,5 +1,3 @@
-import { useLang } from "@/context/LanguageContext";
-
 const scrollTo = (id: string) => {
   const el = document.getElementById(id);
   if (el) {
@@ -12,9 +10,6 @@ const scrollTo = (id: string) => {
 };
 
 export default function Hero() {
-  const { t } = useLang();
-  const [line1, line2] = t.hero.title.split("\n");
-
   return (
     <div
       className="relative flex items-center overflow-hidden pt-20 md:pt-0"
@@ -57,17 +52,17 @@ export default function Hero() {
             textShadow: "0 2px 30px rgba(0,60,180,0.35)",
           }}
         >
-          {line1}<br />{line2}
+          Дизайн для бизнеса<br />через нейросети
         </h1>
 
-        <p className="text-white/60 text-sm md:text-base mb-2 leading-relaxed">{t.hero.sub1}</p>
-        <p className="text-white/60 text-sm md:text-base mb-6 leading-relaxed">{t.hero.sub2}</p>
+        <p className="text-white/60 text-sm md:text-base mb-2 leading-relaxed">Карточки товаров\u00a0•\u00a0Сайты\u00a0•\u00a0Меню для кафе</p>
+        <p className="text-white/60 text-sm md:text-base mb-6 leading-relaxed">Обложки ВК\u00a0•\u00a0Визуал для соцсетей\u00a0•\u00a0Брендинг</p>
 
         <p
           className="text-white/80 text-sm md:text-base font-medium mb-8 leading-snug"
           style={{ textShadow: "0 0 20px rgba(0,150,255,0.3)" }}
         >
-          {t.hero.tagline}
+          Быстрее фрилансера.\u00a0Дешевле агентства.\u00a0Круче шаблонов.
         </p>
 
         <div className="flex flex-wrap gap-3">
@@ -85,7 +80,7 @@ export default function Hero() {
               cursor: "pointer",
             }}
           >
-            {t.hero.cta}
+            Обсудить проект
           </button>
           <button
             onClick={() => scrollTo("портфолио")}
@@ -100,7 +95,7 @@ export default function Hero() {
               cursor: "pointer",
             }}
           >
-            {t.hero.portfolio}
+            Смотреть портфолио
           </button>
         </div>
       </div>

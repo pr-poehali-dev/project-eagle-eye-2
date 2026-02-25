@@ -1,11 +1,16 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
-import { useLang } from "@/context/LanguageContext";
+
+const faqs = [
+  { q: "Это реальные фото или нейросеть?", a: "Генерирую нейросетью и дорабатываю. Не отличить от профессиональной съёмки." },
+  { q: "Сколько времени занимает сайт?", a: "Лендинг — 2–3 дня. Многостраничный — 5–7 дней." },
+  { q: "На чём делаете сайты?", a: "На нейро платформах." },
+  { q: "А если не понравится?", a: "Макет бесплатный. Не нравится — не платите." },
+  { q: "Можно ли вносить правки?", a: "До 3 правок включены в стоимость." },
+];
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
-  const { t } = useLang();
-  const f = t.faq;
 
   return (
     <section
@@ -15,12 +20,12 @@ export default function FAQ() {
     >
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-10">
-          <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">{f.tag}</p>
+          <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">FAQ</p>
           <h2
             className="text-white font-extrabold uppercase text-3xl md:text-4xl tracking-tight"
             style={{ textShadow: "0 0 40px rgba(0,120,255,0.25)" }}
           >
-            {f.title}
+            Частые вопросы
           </h2>
           <div
             className="mt-4 mx-auto w-16 h-[2px]"
@@ -29,7 +34,7 @@ export default function FAQ() {
         </div>
 
         <div className="flex flex-col gap-3">
-          {f.items.map((faq, i) => (
+          {faqs.map((faq, i) => (
             <div
               key={i}
               className="rounded-xl overflow-hidden transition-all duration-300 cursor-pointer"

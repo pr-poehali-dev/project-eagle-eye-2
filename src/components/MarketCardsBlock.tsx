@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useLang } from "@/context/LanguageContext";
 
 const goToContacts = (navigate: ReturnType<typeof useNavigate>, msg: string) => {
   const el = document.getElementById("контакты");
@@ -11,11 +10,30 @@ const goToContacts = (navigate: ReturnType<typeof useNavigate>, msg: string) => 
   }, 600);
 };
 
+const packages = [
+  { title: "1 карточка", price: "1 990₽", items: ["1 главный слайд", "Инфографика", "2 правки"] },
+  { title: "3 карточки", price: "4 990₽", items: ["Главная + 2 доп. слайда", "Продающие блоки", "3–4 правки"], popular: true },
+  { title: "5 карточек", price: "7 990₽", items: ["Полный комплект", "Структура под маркетплейс", "Инфографика", "Все исходники"] },
+];
+
+const benefits = [
+  "Главный слайд — цепляет взгляд в выдаче",
+  "Инфографика — свойства и преимущества",
+  "Продающие блоки — закрывают возражения",
+  "Исходники — редактируйте сами",
+];
+
+const niches = [
+  { emoji: "👟", label: "Обувь", desc: "ракурсы, размерная сетка, материал" },
+  { emoji: "💄", label: "Косметика", desc: "состав, до/после, применение" },
+  { emoji: "🔧", label: "Инструменты", desc: "характеристики, комплектация" },
+  { emoji: "👗", label: "Одежда", desc: "ткань, посадка, размеры" },
+  { emoji: "🍵", label: "Еда и напитки", desc: "состав, вкус, упаковка" },
+  { emoji: "🏠", label: "Товары для дома", desc: "размеры, материал, применение" },
+];
+
 export default function MarketCardsBlock() {
   const navigate = useNavigate();
-  const { t } = useLang();
-  const m = t.marketCards;
-  const [titleLine1, titleLine2] = m.title.split("\n");
 
   return (
     <section
@@ -30,20 +48,20 @@ export default function MarketCardsBlock() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-12">
-          <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">{m.tag}</p>
+          <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">Услуга</p>
           <h2
             className="text-white font-extrabold uppercase text-3xl md:text-4xl tracking-tight"
             style={{ textShadow: "0 0 40px rgba(0,120,255,0.25)" }}
           >
-            {titleLine1}<br className="sm:hidden" /> {titleLine2}
+            📦 Карточки товаров<br className="sm:hidden" /> для маркетплейсов
           </h2>
           <p className="text-white/55 mt-4 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-            {m.sub1}{" "}
+            Продающие карточки для{" "}
             <span className="text-white font-semibold">Ozon</span>,{" "}
             <span className="text-white font-semibold">Wildberries</span>,{" "}
             <span className="text-white font-semibold">Яндекс Маркет</span>.<br />
-            <span style={{ color: "#ff4d4d" }}>{m.sub2}</span>{" "}
-            <span style={{ color: "#00aaff" }}>{m.sub3}</span>
+            <span style={{ color: "#ff4d4d" }}>Скучная карточка = листают дальше.</span>{" "}
+            <span style={{ color: "#00aaff" }}>Яркая = кликают и покупают.</span>
           </p>
           <div className="mt-4 mx-auto w-16 h-[2px]" style={{ background: "linear-gradient(90deg, transparent, #00aaff, transparent)" }} />
         </div>
@@ -58,7 +76,7 @@ export default function MarketCardsBlock() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-5 mb-8">
-          {m.packages.map((pkg) => (
+          {packages.map((pkg) => (
             <div
               key={pkg.title}
               className="rounded-2xl p-6 flex flex-col gap-4 relative"
@@ -71,7 +89,7 @@ export default function MarketCardsBlock() {
               {pkg.popular && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full"
                   style={{ background: "linear-gradient(90deg, #7000ff, #aa44ff)" }}>
-                  {m.popular}
+                  Хит
                 </span>
               )}
               <div className="flex justify-between items-start">
@@ -98,9 +116,9 @@ export default function MarketCardsBlock() {
 
         <div className="grid md:grid-cols-2 gap-5 mb-8">
           <div className="rounded-2xl p-6" style={{ background: "linear-gradient(145deg, #0d1b2e, #090f1e)", border: "1px solid rgba(0,170,255,0.15)" }}>
-            <h3 className="text-[#00aaff] font-bold text-xs uppercase tracking-widest mb-5">{m.benefitsTitle}</h3>
+            <h3 className="text-[#00aaff] font-bold text-xs uppercase tracking-widest mb-5">Что входит в каждую карточку</h3>
             <ul className="flex flex-col gap-3">
-              {m.benefits.map((b) => (
+              {benefits.map((b) => (
                 <li key={b} className="flex items-start gap-3">
                   <span className="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shrink-0 text-[10px]"
                     style={{ background: "rgba(0,170,255,0.15)", color: "#00aaff", border: "1px solid rgba(0,170,255,0.35)" }}>✓</span>
@@ -110,9 +128,9 @@ export default function MarketCardsBlock() {
             </ul>
           </div>
           <div className="rounded-2xl p-6" style={{ background: "linear-gradient(145deg, #0d1b2e, #090f1e)", border: "1px solid rgba(0,170,255,0.15)" }}>
-            <h3 className="text-[#00aaff] font-bold text-xs uppercase tracking-widest mb-5">{m.nichesTitle}</h3>
+            <h3 className="text-[#00aaff] font-bold text-xs uppercase tracking-widest mb-5">Примеры ниш</h3>
             <ul className="flex flex-col gap-3">
-              {m.niches.map((n) => (
+              {niches.map((n) => (
                 <li key={n.label} className="flex items-start gap-2.5">
                   <span className="text-base shrink-0">{n.emoji}</span>
                   <span className="text-sm">
@@ -127,11 +145,11 @@ export default function MarketCardsBlock() {
 
         <div className="flex justify-center">
           <button
-            onClick={() => goToContacts(navigate, m.ctaMsg)}
+            onClick={() => goToContacts(navigate, "Хочу заказать карточки товаров для маркетплейса")}
             className="inline-flex items-center gap-2 font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
             style={{ fontSize: "0.85rem", padding: "14px 40px", background: "linear-gradient(135deg, #0055ff, #00aaff)", color: "#fff", borderRadius: "6px", boxShadow: "0 0 32px rgba(0,170,255,0.4)" }}
           >
-            {m.cta}
+            Хочу карточки → Написать в ЛС
           </button>
         </div>
       </div>

@@ -1,9 +1,4 @@
-import { useLang } from "@/context/LanguageContext";
-
 export default function VkBanner() {
-  const { t } = useLang();
-  const v = t.vkBanner;
-
   return (
     <section
       className="py-12 px-6 md:px-12 lg:px-20"
@@ -66,7 +61,7 @@ export default function VkBanner() {
                     <path d="M9.5 16.5L5.5 12.5L6.91 11.09L9.5 13.67L17.09 6.08L18.5 7.5L9.5 16.5Z" fill="white"/>
                   </svg>
                 </div>
-                <p className="text-white/45 text-xs">{v.desc}</p>
+                <p className="text-white/45 text-xs">Дизайн для бизнеса · Визуал · Брендинг</p>
               </div>
             </div>
 
@@ -81,7 +76,7 @@ export default function VkBanner() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm3.08 13.47h-1.5c-.56 0-.74-.45-1.76-1.48-1-.97-1.4-1.1-1.65-1.1-.34 0-.43.1-.43.57v1.34c0 .41-.13.65-1.22.65-1.8 0-3.8-1.09-5.2-3.12C4.7 10.1 4.2 8.26 4.2 7.87c0-.24.09-.47.57-.47h1.5c.43 0 .59.2.75.65.83 2.4 2.2 4.5 2.77 4.5.21 0 .3-.1.3-.64V9.6c-.06-1.14-.67-1.24-.67-1.65 0-.2.17-.4.43-.4h2.36c.37 0 .5.2.5.62v3.34c0 .37.17.5.27.5.21 0 .38-.13.76-.52 1.18-1.32 2.02-3.35 2.02-3.35.11-.24.3-.47.74-.47h1.5c.45 0 .55.23.45.57-.19.87-2.02 3.46-2.02 3.46-.16.27-.22.39 0 .69.16.22.69.67 1.04 1.08.65.73 1.14 1.35 1.27 1.77.14.41-.08.62-.52.62z"/>
               </svg>
-              <span className="hidden sm:inline">{v.follow}</span>
+              <span className="hidden sm:inline">Подписаться</span>
             </div>
           </div>
         </a>

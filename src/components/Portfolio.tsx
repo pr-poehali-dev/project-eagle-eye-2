@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
-import { useLang } from "@/context/LanguageContext";
 
 type Item = { id: number; title: string; cat: string; color: string; img?: string };
 
-const catKeys = ["Маркетплейсы", "Сайты", "Меню кафе", "Обложки ВК", "Визуал", "Брендинг"];
+const filters = ["Все", "Маркетплейсы", "Сайты", "Меню кафе", "Обложки ВК", "Визуал", "Брендинг"];
 
 const items: Item[] = [
   { id: 1, title: "Кроссовки Blaze Runner X", cat: "Маркетплейсы", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/b2e09f6b-ebe8-48c9-a12e-6bb6e7746fb1.jpg", color: "#0a1f3d" },
@@ -44,13 +43,9 @@ const withImg = items.filter((i) => i.img);
 export default function Portfolio() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [lightbox, setLightbox] = useState<Item | null>(null);
-  const { t } = useLang();
-  const p = t.portfolio;
 
-  const filters = p.filters;
   const active = filters[activeIdx];
-
-  const filtered = activeIdx === 0 ? items : items.filter((i) => i.cat === catKeys[activeIdx - 1]);
+  const filtered = active === "Все" ? items : items.filter((i) => i.cat === active);
 
   const openLightbox = (item: Item) => { if (item.img) setLightbox(item); };
 
@@ -65,12 +60,12 @@ export default function Portfolio() {
   return (
     <section id="портфолио" className="py-16 px-6 md:px-12 lg:px-20" style={{ background: "#060c18" }}>
       <div className="text-center mb-10">
-        <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">{p.tag}</p>
+        <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">Портфолио</p>
         <h2
           className="text-white font-extrabold uppercase text-3xl md:text-4xl tracking-tight"
           style={{ textShadow: "0 0 40px rgba(0,120,255,0.25)" }}
         >
-          {p.title}
+          МОИ РАБОТЫ
         </h2>
         <div
           className="mt-4 mx-auto w-16 h-[2px]"
@@ -118,11 +113,8 @@ export default function Portfolio() {
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             )}
-            <div
-              className="absolute inset-0 flex flex-col justify-end p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%)" }}
-            >
-              <p className="text-white font-semibold text-xs leading-snug">{item.title}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+              <p className="text-white text-xs font-semibold leading-snug">{item.title}</p>
             </div>
           </div>
         ))}
@@ -141,7 +133,7 @@ export default function Portfolio() {
             <Icon name="X" size={32} />
           </button>
           <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-2"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-2"
             onClick={(e) => navigate(-1, e)}
           >
             <Icon name="ChevronLeft" size={36} />
@@ -150,11 +142,10 @@ export default function Portfolio() {
             src={lightbox.img}
             alt={lightbox.title}
             className="max-w-full max-h-[85vh] rounded-xl object-contain"
-            style={{ boxShadow: "0 0 60px rgba(0,100,255,0.3)" }}
             onClick={e => e.stopPropagation()}
           />
           <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-2"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-2"
             onClick={(e) => navigate(1, e)}
           >
             <Icon name="ChevronRight" size={36} />

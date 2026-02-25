@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useLang } from "@/context/LanguageContext";
 
 const goToContacts = (navigate: ReturnType<typeof useNavigate>, msg: string) => {
   const el = document.getElementById("контакты");
@@ -11,10 +10,23 @@ const goToContacts = (navigate: ReturnType<typeof useNavigate>, msg: string) => 
   }, 600);
 };
 
+const packages = [
+  { title: "Старт", price: "2 990₽", items: ["1 концепция", "2 правки", "PNG + JPG"] },
+  { title: "Бизнес", price: "5 990₽", items: ["2 концепции", "5 правок", "PNG + JPG + PDF + SVG", "Подбор цветов и шрифтов"], popular: true },
+  { title: "Премиум", price: "9 990₽", items: ["3 концепции", "Неограниченные правки", "Все форматы", "Адаптация под маркетплейсы"] },
+];
+
+const niches = [
+  { emoji: "☕", label: "Кофейня", desc: "тёплые тона, минимализм" },
+  { emoji: "💈", label: "Барбершоп", desc: "мужской стиль, брутал" },
+  { emoji: "🍕", label: "Ресторан / кафе", desc: "аппетитно и узнаваемо" },
+  { emoji: "💅", label: "Бьюти-студия", desc: "нежно, стильно, женственно" },
+  { emoji: "🏋️", label: "Фитнес / спорт", desc: "энергия, динамика, сила" },
+  { emoji: "🔧", label: "Услуги / ремонт", desc: "надёжно, профессионально" },
+];
+
 export default function LogosBlock() {
   const navigate = useNavigate();
-  const { t } = useLang();
-  const l = t.logos;
 
   return (
     <section
@@ -29,14 +41,14 @@ export default function LogosBlock() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-12">
-          <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">{l.tag}</p>
+          <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">Брендинг</p>
           <h2 className="text-white font-extrabold uppercase text-3xl md:text-4xl tracking-tight"
             style={{ textShadow: "0 0 40px rgba(0,120,255,0.25)" }}>
-            {l.title}
+            ⚡ Логотипы и Брендинг
           </h2>
           <p className="text-white/50 mt-4 text-sm md:text-base max-w-xl mx-auto">
-            {l.sub1}{" "}
-            <span className="text-[#00aaff]">{l.sub2}</span>{l.sub3}
+            Не шаблон из конструктора. Не клипарт.{" "}
+            <span className="text-[#00aaff]">Уникальный логотип через нейросети</span> за 1 день.
           </p>
           <div className="mt-4 mx-auto w-16 h-[2px]" style={{ background: "linear-gradient(90deg, transparent, #00aaff, transparent)" }} />
         </div>
@@ -52,7 +64,7 @@ export default function LogosBlock() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-5 mb-8">
-          {l.packages.map((pkg) => (
+          {packages.map((pkg) => (
             <div
               key={pkg.title}
               className="rounded-2xl p-6 flex flex-col gap-4 relative"
@@ -65,7 +77,7 @@ export default function LogosBlock() {
               {pkg.popular && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full"
                   style={{ background: "linear-gradient(90deg, #7000ff, #aa44ff)" }}>
-                  {l.popular}
+                  Популярный
                 </span>
               )}
               <div className="flex justify-between items-start">
@@ -91,9 +103,9 @@ export default function LogosBlock() {
         </div>
 
         <div className="rounded-2xl p-6 border border-white/8 mb-8" style={{ background: "rgba(255,255,255,0.03)" }}>
-          <p className="text-[#00aaff] text-xs uppercase tracking-widest font-semibold mb-4">{l.nichesTitle}</p>
+          <p className="text-[#00aaff] text-xs uppercase tracking-widest font-semibold mb-4">Примеры ниш</p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {l.niches.map((n) => (
+            {niches.map((n) => (
               <div key={n.label} className="flex items-center gap-2.5">
                 <span className="text-xl">{n.emoji}</span>
                 <div>
@@ -107,11 +119,11 @@ export default function LogosBlock() {
 
         <div className="flex justify-center">
           <button
-            onClick={() => goToContacts(navigate, l.ctaMsg)}
+            onClick={() => goToContacts(navigate, "Хочу заказать логотип и брендинг")}
             className="inline-flex items-center gap-2 font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
             style={{ fontSize: "0.85rem", padding: "14px 40px", background: "linear-gradient(135deg, #0055ff, #00aaff)", color: "#fff", borderRadius: "6px", boxShadow: "0 0 32px rgba(0,170,255,0.4)" }}
           >
-            {l.cta}
+            Хочу логотип → Написать в ЛС
           </button>
         </div>
       </div>

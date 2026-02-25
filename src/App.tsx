@@ -6,8 +6,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTopButton from "./components/ScrollToTopButton";
-import { LanguageProvider } from "./context/LanguageContext";
-
 const Index = lazy(() => import("./pages/Index"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -17,7 +15,6 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <LanguageProvider>
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -34,7 +31,6 @@ const App = () => (
         </Suspense>
       </BrowserRouter>
     </TooltipProvider>
-  </LanguageProvider>
   </QueryClientProvider>
 );
 

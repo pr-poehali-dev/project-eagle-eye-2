@@ -1,16 +1,29 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { useLang } from "@/context/LanguageContext";
 
 const planColors = ["#2b9fff", "#a855f7", "#f59e0b"];
 const planGlows = ["rgba(43,159,255,0.25)", "rgba(168,85,247,0.25)", "rgba(245,158,11,0.25)"];
 
+const bullets = [
+  "8–15 фото в едином стиле",
+  "Посты + сторис + баннеры акций",
+  "Под вашу нишу и фирменные цвета",
+  "Готово к публикации — просто выкладывай",
+  "Контент-план + тексты в пакете Премиум",
+];
+
+const plans = [
+  { name: "Визуал Лайт", price: "2 990₽", features: ["8 фото в едином стиле", "Квадратный формат 1:1", "Для ВК или Telegram"] },
+  { name: "Визуал Стандарт", price: "4 990₽", popular: true, features: ["12 фото в едином стиле", "Квадрат 1:1 + сторис 9:16", "2 баннера для акций", "Для ВК и Telegram"] },
+  { name: "Визуал Премиум", price: "7 990₽", features: ["15 фото + 5 сторис", "3 баннера для акций", "Контент-план на месяц", "Тексты к каждому посту", "Хештеги"] },
+];
+
+const desc = "Ваша лента будет выглядеть как у крупного бренда.\n8–15 фото в едином стиле. Посты, сторис, баннеры.\nВыложил — и подписчики думают что у вас SMM-отдел.";
+
 export default function SocialVisualBlock() {
   const [hovered, setHovered] = useState<number | null>(null);
   const navigate = useNavigate();
-  const { t } = useLang();
-  const s = t.social;
 
   const goToContacts = (planName: string) => {
     const el = document.getElementById("контакты");
@@ -38,24 +51,24 @@ export default function SocialVisualBlock() {
             className="inline-block text-xs font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full mb-5"
             style={{ background: "rgba(43,159,255,0.1)", color: "#2b9fff", border: "1px solid rgba(43,159,255,0.25)" }}
           >
-            {s.tag}
+            Соцсети
           </span>
           <h2
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-tight mb-4"
             style={{ background: "linear-gradient(135deg, #ffffff 30%, #2b9fff 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
           >
-            {s.title}
+            Визуал для соцсетей
           </h2>
-          <p className="text-white/50 text-lg mb-3">{s.sub}</p>
+          <p className="text-white/50 text-lg mb-3">Готовый контент-пак для ВК, Telegram и соцсетей</p>
           <p className="text-white/70 text-base leading-relaxed max-w-2xl">
-            {s.desc.split("\n").map((line, i) => (
-              <span key={i}>{line}{i < s.desc.split("\n").length - 1 && <br />}</span>
+            {desc.split("\n").map((line, i) => (
+              <span key={i}>{line}{i < desc.split("\n").length - 1 && <br />}</span>
             ))}
           </p>
         </div>
 
         <ul className="flex flex-wrap gap-x-8 gap-y-2 mb-12">
-          {s.bullets.map((b) => (
+          {bullets.map((b) => (
             <li key={b} className="flex items-center gap-2 text-sm text-white/70">
               <Icon name="CheckCircle2" size={15} style={{ color: "#2b9fff", flexShrink: 0 }} />
               {b}
@@ -73,7 +86,7 @@ export default function SocialVisualBlock() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {s.plans.map((plan, i) => (
+          {plans.map((plan, i) => (
             <div
               key={plan.name}
               onMouseEnter={() => setHovered(i)}
@@ -89,7 +102,7 @@ export default function SocialVisualBlock() {
               {plan.popular && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
                   style={{ background: planColors[i], color: "#fff" }}>
-                  {s.popular}
+                  Популярный
                 </span>
               )}
 
@@ -116,7 +129,7 @@ export default function SocialVisualBlock() {
                   border: `1px solid ${planColors[i]}`,
                 }}
               >
-                {s.orderBtn}
+                Заказать
               </button>
             </div>
           ))}

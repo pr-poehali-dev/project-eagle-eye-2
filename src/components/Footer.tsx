@@ -1,17 +1,28 @@
 import Icon from "@/components/ui/icon";
 import { useNavigate } from "react-router-dom";
-import { useLang } from "@/context/LanguageContext";
 
 const socials = [
   { icon: "Send", label: "Telegram", href: "https://t.me/seovzlet" },
   { icon: "MessageCircle", label: "ВКонтакте", href: "https://vk.com/seovzlet" },
 ];
 
+const serviceItems = [
+  { label: "Карточки для маркетплейсов", href: "#маркетплейсы" },
+  { label: "Сайты через нейросети", href: "#сайты" },
+  { label: "Обложки для ВК", href: "#обложки" },
+  { label: "Логотипы и брендинг", href: "#логотипы" },
+  { label: "Меню для кафе", href: "#услуги" },
+];
+
+const navItems = [
+  { label: "Портфолио", href: "#портфолио" },
+  { label: "Обо мне", href: "#о нас" },
+  { label: "Блог", href: "/blog" },
+  { label: "Контакты", href: "#контакты" },
+];
+
 export default function Footer() {
   const navigate = useNavigate();
-  const { t } = useLang();
-  const f = t.footer;
-  const [tagLine1, tagLine2] = f.tagline.split("\n");
 
   const handleNav = (href: string) => {
     if (href.startsWith("/")) {
@@ -69,7 +80,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-white/40 text-sm leading-relaxed">
-              {tagLine1}<br />{tagLine2}
+              Дизайн для бизнеса через нейросети.<br />Быстрее фрилансера, дешевле агентства.
             </p>
             <div className="flex gap-3 mt-1">
               {socials.map((s) => (
@@ -92,9 +103,9 @@ export default function Footer() {
 
           <div className="flex gap-12 sm:gap-20">
             <div>
-              <p className="text-white/40 text-xs uppercase tracking-widest mb-5 font-semibold">{f.services}</p>
+              <p className="text-white/40 text-xs uppercase tracking-widest mb-5 font-semibold">Услуги</p>
               <ul className="flex flex-col gap-3">
-                {f.serviceItems.map((item) => (
+                {serviceItems.map((item) => (
                   <li key={item.label}>
                     <button
                       onClick={() => handleNav(item.href)}
@@ -107,9 +118,9 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <p className="text-white/40 text-xs uppercase tracking-widest mb-5 font-semibold">{f.nav}</p>
+              <p className="text-white/40 text-xs uppercase tracking-widest mb-5 font-semibold">Навигация</p>
               <ul className="flex flex-col gap-3">
-                {f.navItems.map((item) => (
+                {navItems.map((item) => (
                   <li key={item.label}>
                     <button
                       onClick={() => handleNav(item.href)}
@@ -128,9 +139,9 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row justify-between items-center gap-2 mb-5">
           <p className="text-white/30 text-xs">
-            © {new Date().getFullYear()} Стрельцов Digital — {f.copyright}
+            © {new Date().getFullYear()} Стрельцов Digital — Все права защищены
           </p>
-          <p className="text-white/25 text-xs">{f.slogan}</p>
+          <p className="text-white/25 text-xs">Дизайн через нейросети · Быстро · Качественно · Доступно</p>
         </div>
       </div>
 

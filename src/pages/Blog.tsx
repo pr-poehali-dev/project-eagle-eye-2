@@ -3,21 +3,18 @@ import { Link } from "react-router-dom";
 import { blogPosts, categoryColors, BlogCategory } from "@/data/blogData";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useLang } from "@/context/LanguageContext";
 
 const BLOG_OG_IMAGE = "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/728a99ce-7b2c-480e-90ac-8d1d975ee062.jpg";
 const BLOG_TITLE = "Блог Стрельцов Digital — Дизайн, маркетплейсы, нейросети, брендинг";
 const BLOG_DESC = "Блог о дизайне через нейросети. Карточки для маркетплейсов Ozon Wildberries, электронные меню для кафе и ресторанов, логотипы и брендинг, обложки ВК, создание сайтов через AI. Бесплатные гайды и кейсы от Стрельцов Digital.";
 
-const ruFilters: ("Все" | BlogCategory)[] = ["Все", "Дизайн", "Нейросети", "Маркетплейсы", "Кафе", "Брендинг", "Кейс", "Гайд"];
+const filters: ("Все" | BlogCategory)[] = ["Все", "Дизайн", "Нейросети", "Маркетплейсы", "Кафе", "Брендинг", "Кейс", "Гайд"];
 
 const INITIAL_COUNT = 6;
 
 export default function Blog() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [visible, setVisible] = useState(INITIAL_COUNT);
-  const { t } = useLang();
-  const b = t.blog;
 
   useEffect(() => {
     const prev = { title: document.title, desc: document.querySelector('meta[name="description"]')?.getAttribute("content") };
@@ -40,8 +37,8 @@ export default function Blog() {
     };
   }, []);
 
-  const activeRuFilter = ruFilters[activeIdx];
-  const filtered = activeRuFilter === "Все" ? blogPosts : blogPosts.filter(p => p.category === activeRuFilter);
+  const activeFilter = filters[activeIdx];
+  const filtered = activeFilter === "Все" ? blogPosts : blogPosts.filter(p => p.category === activeFilter);
   const shown = filtered.slice(0, visible);
 
   return (
@@ -49,19 +46,19 @@ export default function Blog() {
       <Header />
 
       <div className="pt-28 pb-12 px-6 text-center" style={{ background: "linear-gradient(to bottom, #080d1a, #0a0e1a)" }}>
-        <p className="text-[#00d4ff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">{b.tag}</p>
+        <p className="text-[#00d4ff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">Стрельцов Digital</p>
         <h1 className="text-white font-extrabold text-4xl md:text-5xl uppercase tracking-tight mb-4"
           style={{ textShadow: "0 0 40px rgba(0,212,255,0.2)" }}>
-          {b.title}
+          БЛОГ
         </h1>
-        <p className="text-white/50 text-base md:text-lg max-w-xl mx-auto">{b.sub}</p>
+        <p className="text-white/50 text-base md:text-lg max-w-xl mx-auto">Статьи о дизайне, нейросетях и бизнесе</p>
         <div className="mt-5 mx-auto w-16 h-[2px]"
           style={{ background: "linear-gradient(90deg, transparent, #00d4ff, transparent)" }} />
       </div>
 
       <div className="px-6 md:px-12 mb-10">
         <div className="flex flex-wrap gap-2 justify-center">
-          {b.filters.map((f, i) => (
+          {filters.map((f, i) => (
             <button
               key={f}
               onClick={() => { setActiveIdx(i); setVisible(INITIAL_COUNT); }}
@@ -111,9 +108,9 @@ export default function Blog() {
                 <div className="flex items-center justify-between mt-auto pt-3 border-t border-white/8">
                   <div className="flex items-center gap-3 text-[#64748b] text-xs">
                     <span>📅 {post.date}</span>
-                    <span>⏱ {post.readTime} {b.minRead}</span>
+                    <span>⏱ {post.readTime} мин</span>
                   </div>
-                  <span className="text-[#00d4ff] text-xs font-semibold">{b.readMore}</span>
+                  <span className="text-[#00d4ff] text-xs font-semibold">Читать →</span>
                 </div>
               </div>
             </Link>
@@ -127,7 +124,7 @@ export default function Blog() {
               className="px-8 py-3 rounded-xl text-sm font-bold uppercase tracking-wider text-white transition-all hover:opacity-90"
               style={{ background: "rgba(0,212,255,0.1)", border: "1px solid rgba(0,212,255,0.3)" }}
             >
-              {b.loadMore}
+              Загрузить ещё статьи
             </button>
           </div>
         )}

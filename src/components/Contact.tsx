@@ -1,10 +1,4 @@
-import { useLang } from "@/context/LanguageContext";
-
 export default function Contact() {
-  const { t } = useLang();
-  const c = t.contact;
-  const [line1, line2] = c.sub.split("\n");
-
   return (
     <section
       id="контакты"
@@ -19,15 +13,15 @@ export default function Contact() {
       />
 
       <div className="max-w-2xl mx-auto relative z-10 text-center">
-        <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-4">{c.tag}</p>
+        <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-4">Контакты</p>
         <h2
           className="text-white font-extrabold uppercase text-3xl md:text-4xl tracking-tight mb-4"
           style={{ textShadow: "0 0 40px rgba(0,120,255,0.3)" }}
         >
-          {c.title}
+          Обсудить проект
         </h2>
         <p className="text-white/55 text-sm md:text-base leading-relaxed mb-10">
-          {line1}<br />{line2}
+          Напишите мне — покажу бесплатный макет<br />под ваш бизнес за 24 часа
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
@@ -45,7 +39,7 @@ export default function Contact() {
             }}
           >
             <span className="text-lg">🅰</span>
-            {c.vk}
+            Написать в ВК
           </a>
           <a
             href="https://t.me/seovzlet"
@@ -61,7 +55,7 @@ export default function Contact() {
             }}
           >
             <span className="text-lg">✈️</span>
-            {c.tg}
+            Написать в Telegram
           </a>
         </div>
 
