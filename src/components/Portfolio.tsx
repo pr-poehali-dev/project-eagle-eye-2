@@ -26,11 +26,11 @@ const items: Item[] = [
   { id: 12, title: "Обложка ВК Образование", cat: "Обложки ВК", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/3f91d0ab-cad5-4ee1-bf32-48557176586c.jpg", color: "#080d1a" },
   { id: 23, title: "Обложка ВК Туризм", cat: "Обложки ВК", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/cae1115a-7048-4dc1-9436-50f735ff2c94.jpg", color: "#1a0e00" },
   { id: 24, title: "Обложка ВК Медицина", cat: "Обложки ВК", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/4a429772-a0f9-4f88-bed1-fad463474d2d.jpg", color: "#061a10" },
-  { id: 13, title: "Зёрна — кофейня", cat: "Визуал", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/dcb51a10-177d-49fc-8c38-96e00ca2cb8c.jpg", color: "#150f08" },
-  { id: 14, title: "Blade — барбершоп", cat: "Визуал", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/e89f06ae-44d0-4fe9-bcbb-bb6ef73e7621.jpg", color: "#0d0a08" },
-  { id: 15, title: "Сила — фитнес", cat: "Визуал", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/28821ac7-8ff1-4e77-8556-c27e65e2d58b.jpg", color: "#120d08" },
-  { id: 25, title: "Bloom — цветочный", cat: "Визуал", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/e050bacc-4af4-4e7a-b1f7-0974a2ba0eaf.jpg", color: "#150a10" },
-  { id: 26, title: "Boss Burger — ресторан", cat: "Визуал", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/f519ac3c-43b4-40d2-8e65-50626edcfb5f.jpg", color: "#1a0500" },
+  { id: 13, title: "Зёрна — кофейня", cat: "Визуал", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/ff4b64df-beda-4288-9826-058f5b5876f5.jpg", color: "#150f08" },
+  { id: 14, title: "Blade — барбершоп", cat: "Визуал", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/8784befa-3297-45f1-bcb2-30b377db11fe.jpg", color: "#0d0a08" },
+  { id: 15, title: "Сила — фитнес", cat: "Визуал", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/c73faa86-5c79-41ab-af21-6ea16e106bdf.jpg", color: "#120d08" },
+  { id: 25, title: "Bloom — цветочный", cat: "Визуал", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/01281705-35ee-4222-9476-d0d4412d52c8.jpg", color: "#150a10" },
+  { id: 26, title: "Boss Burger — ресторан", cat: "Визуал", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/ee4c4225-44ee-4c25-8175-aa1e5badb155.jpg", color: "#1a0500" },
 ];
 
 export default function Portfolio() {
