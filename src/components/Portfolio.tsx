@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
+import { useLang } from "@/context/LanguageContext";
 
-type Item = { id: number; title: string; cat: string; color: string; img?: string; emoji?: string };
+type Item = { id: number; title: string; cat: string; color: string; img?: string };
 
-const filters = ["Все", "Маркетплейсы", "Сайты", "Меню кафе", "Обложки ВК", "Визуал", "Брендинг"];
+const catKeys = ["Маркетплейсы", "Сайты", "Меню кафе", "Обложки ВК", "Визуал", "Брендинг"];
 
 const items: Item[] = [
   { id: 1, title: "Кроссовки Blaze Runner X", cat: "Маркетплейсы", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/b2e09f6b-ebe8-48c9-a12e-6bb6e7746fb1.jpg", color: "#0a1f3d" },
@@ -38,12 +39,18 @@ const items: Item[] = [
   { id: 31, title: "Сила — фитнес", cat: "Брендинг", img: "https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/3803bd7d-32cb-4051-b836-3fae7bdbd554.jpg", color: "#0d0a05" },
 ];
 
-export default function Portfolio() {
-  const [active, setActive] = useState("Все");
-  const [lightbox, setLightbox] = useState<Item | null>(null);
+const withImg = items.filter((i) => i.img);
 
-  const filtered = active === "Все" ? items : items.filter((i) => i.cat === active);
-  const withImg = items.filter((i) => i.img);
+export default function Portfolio() {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [lightbox, setLightbox] = useState<Item | null>(null);
+  const { t } = useLang();
+  const p = t.portfolio;
+
+  const filters = p.filters;
+  const active = filters[activeIdx];
+
+  const filtered = activeIdx === 0 ? items : items.filter((i) => i.cat === catKeys[activeIdx - 1]);
 
   const openLightbox = (item: Item) => { if (item.img) setLightbox(item); };
 
@@ -57,14 +64,13 @@ export default function Portfolio() {
 
   return (
     <section id="портфолио" className="py-16 px-6 md:px-12 lg:px-20" style={{ background: "#060c18" }}>
-      {/* Header */}
       <div className="text-center mb-10">
-        <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">Портфолио</p>
+        <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">{p.tag}</p>
         <h2
           className="text-white font-extrabold uppercase text-3xl md:text-4xl tracking-tight"
           style={{ textShadow: "0 0 40px rgba(0,120,255,0.25)" }}
         >
-          МОИ РАБОТЫ
+          {p.title}
         </h2>
         <div
           className="mt-4 mx-auto w-16 h-[2px]"
@@ -72,15 +78,14 @@ export default function Portfolio() {
         />
       </div>
 
-      {/* Filters */}
       <div className="flex flex-wrap gap-2 justify-center mb-10">
-        {filters.map((f) => (
+        {filters.map((f, i) => (
           <button
             key={f}
-            onClick={() => setActive(f)}
+            onClick={() => setActiveIdx(i)}
             className="px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300"
             style={
-              active === f
+              activeIdx === i
                 ? { background: "#00aaff", color: "#fff", boxShadow: "0 0 16px rgba(0,170,255,0.5)" }
                 : { background: "rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.55)", border: "1px solid rgba(255,255,255,0.1)" }
             }
@@ -90,7 +95,6 @@ export default function Portfolio() {
         ))}
       </div>
 
-      {/* Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
         {filtered.map((item) => (
           <div
@@ -107,33 +111,23 @@ export default function Portfolio() {
             onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(0,170,255,0.45)")}
             onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)")}
           >
-            {item.img ? (
-              <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
-            ) : (
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-3">
-                {item.emoji && <span className="text-4xl">{item.emoji}</span>}
-                <p className="text-white/40 text-[10px] uppercase tracking-wider text-center leading-tight">Фото скоро</p>
-              </div>
+            {item.img && (
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             )}
-
-            {/* Hover overlay */}
             <div
-              className="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              style={{ background: "linear-gradient(to top, rgba(0,10,30,0.92) 0%, transparent 60%)" }}
+              className="absolute inset-0 flex flex-col justify-end p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%)" }}
             >
-              <div className="flex items-end justify-between w-full">
-                <div>
-                  <p className="text-white font-bold text-xs leading-snug">{item.title}</p>
-                  <p className="text-[#00aaff] text-[10px] mt-0.5">{item.cat}</p>
-                </div>
-                {item.img && <Icon name="ZoomIn" size={16} className="text-white/70 flex-shrink-0 mb-0.5" />}
-              </div>
+              <p className="text-white font-semibold text-xs leading-snug">{item.title}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Lightbox */}
       {lightbox && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -146,34 +140,26 @@ export default function Portfolio() {
           >
             <Icon name="X" size={32} />
           </button>
-
-          {/* Prev */}
           <button
-            className="absolute left-3 md:left-6 text-white/60 hover:text-white transition-colors p-2 rounded-full"
-            style={{ background: "rgba(255,255,255,0.08)" }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-2"
             onClick={(e) => navigate(-1, e)}
           >
-            <Icon name="ChevronLeft" size={32} />
+            <Icon name="ChevronLeft" size={36} />
           </button>
-
           <img
             src={lightbox.img}
             alt={lightbox.title}
-            className="max-w-full max-h-[85vh] rounded-2xl object-contain"
-            style={{ boxShadow: "0 0 60px rgba(0,170,255,0.2)" }}
+            className="max-w-full max-h-[85vh] rounded-xl object-contain"
+            style={{ boxShadow: "0 0 60px rgba(0,100,255,0.3)" }}
             onClick={e => e.stopPropagation()}
           />
-
-          {/* Next */}
           <button
-            className="absolute right-3 md:right-6 text-white/60 hover:text-white transition-colors p-2 rounded-full"
-            style={{ background: "rgba(255,255,255,0.08)" }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-2"
             onClick={(e) => navigate(1, e)}
           >
-            <Icon name="ChevronRight" size={32} />
+            <Icon name="ChevronRight" size={36} />
           </button>
-
-          <p className="absolute bottom-6 text-white/60 text-sm">{lightbox.title}</p>
+          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-sm">{lightbox.title}</p>
         </div>
       )}
     </section>

@@ -1,16 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-
-const navItems = [
-  { label: "Услуги", href: "#услуги" },
-  { label: "Маркетплейсы", href: "#маркетплейсы" },
-  { label: "Сайты", href: "#сайты" },
-  { label: "Логотипы", href: "#логотипы" },
-  { label: "Портфолио", href: "#портфолио" },
-  { label: "Блог", href: "/blog" },
-  { label: "Контакты", href: "#контакты" },
-];
+import { useLang } from "@/context/LanguageContext";
 
 interface HeaderProps {
   className?: string;
@@ -19,6 +10,17 @@ interface HeaderProps {
 export default function Header({ className }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
+  const { lang, setLang, t } = useLang();
+
+  const navItems = [
+    { label: t.nav.services, href: "#услуги" },
+    { label: t.nav.marketplaces, href: "#маркетплейсы" },
+    { label: t.nav.sites, href: "#сайты" },
+    { label: t.nav.logos, href: "#логотипы" },
+    { label: t.nav.portfolio, href: "#портфолио" },
+    { label: t.nav.blog, href: "/blog" },
+    { label: t.nav.contacts, href: "#контакты" },
+  ];
 
   const handleNav = (href: string) => {
     setMobileOpen(false);
@@ -78,26 +80,64 @@ export default function Header({ className }: HeaderProps) {
             </div>
           </div>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex gap-8">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => handleNav(item.href)}
-                className="text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium uppercase tracking-wider"
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
+          {/* Desktop Nav + Lang switcher */}
+          <div className="hidden md:flex items-center gap-8">
+            <nav className="flex gap-8">
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => handleNav(item.href)}
+                  className="text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium uppercase tracking-wider"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
 
-          {/* Mobile burger */}
-          <button
-            className="md:hidden text-white p-1"
-            onClick={() => setMobileOpen((v) => !v)}
-          >
-            <Icon name={mobileOpen ? "X" : "Menu"} size={26} />
-          </button>
+            {/* Language switcher */}
+            <button
+              onClick={() => setLang(lang === "ru" ? "en" : "ru")}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300"
+              style={{
+                background: "rgba(0,170,255,0.1)",
+                border: "1px solid rgba(0,170,255,0.3)",
+                color: "#00aaff",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.background = "rgba(0,170,255,0.2)";
+                (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,170,255,0.6)";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.background = "rgba(0,170,255,0.1)";
+                (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,170,255,0.3)";
+              }}
+            >
+              <span>{lang === "ru" ? "🇷🇺" : "🇬🇧"}</span>
+              <span>{lang === "ru" ? "EN" : "RU"}</span>
+            </button>
+          </div>
+
+          {/* Mobile controls */}
+          <div className="md:hidden flex items-center gap-3">
+            <button
+              onClick={() => setLang(lang === "ru" ? "en" : "ru")}
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300"
+              style={{
+                background: "rgba(0,170,255,0.1)",
+                border: "1px solid rgba(0,170,255,0.3)",
+                color: "#00aaff",
+              }}
+            >
+              <span>{lang === "ru" ? "🇷🇺" : "🇬🇧"}</span>
+              <span>{lang === "ru" ? "EN" : "RU"}</span>
+            </button>
+            <button
+              className="text-white p-1"
+              onClick={() => setMobileOpen((v) => !v)}
+            >
+              <Icon name={mobileOpen ? "X" : "Menu"} size={26} />
+            </button>
+          </div>
         </div>
       </header>
 

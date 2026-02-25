@@ -1,11 +1,9 @@
-const stats = [
-  { value: "50+", label: "проектов" },
-  { value: "15+", label: "ниш бизнеса" },
-  { value: "24 ч", label: "первый макет" },
-  { value: "5×", label: "дешевле агентства" },
-];
+import { useLang } from "@/context/LanguageContext";
 
 export default function Stats() {
+  const { t } = useLang();
+  const s = t.stats;
+
   return (
     <section
       className="py-14 px-6 md:px-12"
@@ -13,12 +11,12 @@ export default function Stats() {
     >
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
-          <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">Результаты</p>
+          <p className="text-[#00aaff] text-xs uppercase tracking-[0.3em] font-semibold mb-3">{s.tag}</p>
           <h2
             className="text-white font-extrabold uppercase text-3xl md:text-4xl tracking-tight"
             style={{ textShadow: "0 0 40px rgba(0,120,255,0.25)" }}
           >
-            В цифрах
+            {s.title}
           </h2>
           <div
             className="mt-4 mx-auto w-16 h-[2px]"
@@ -27,9 +25,9 @@ export default function Stats() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map((s) => (
+          {s.items.map((item) => (
             <div
-              key={s.label}
+              key={item.label}
               className="rounded-2xl p-6 flex flex-col items-center text-center"
               style={{
                 background: "linear-gradient(145deg, #0d1b2e, #090f1e)",
@@ -45,9 +43,9 @@ export default function Stats() {
                   textShadow: "0 0 24px rgba(0,170,255,0.5)",
                 }}
               >
-                {s.value}
+                {item.value}
               </span>
-              <span className="text-white/55 text-sm">{s.label}</span>
+              <span className="text-white/55 text-sm">{item.label}</span>
             </div>
           ))}
         </div>

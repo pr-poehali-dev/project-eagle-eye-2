@@ -1,3 +1,5 @@
+import { useLang } from "@/context/LanguageContext";
+
 const scrollTo = (id: string) => {
   const el = document.getElementById(id);
   if (el) {
@@ -10,6 +12,9 @@ const scrollTo = (id: string) => {
 };
 
 export default function Hero() {
+  const { t } = useLang();
+  const [line1, line2] = t.hero.title.split("\n");
+
   return (
     <div
       className="relative flex items-center overflow-hidden pt-20 md:pt-0"
@@ -18,7 +23,6 @@ export default function Hero() {
         minHeight: "clamp(380px, 48vw, 600px)",
       }}
     >
-      {/* Background glow — bright blue behind phones */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -27,15 +31,13 @@ export default function Hero() {
         }}
       />
 
-      {/* Right side: hero image — seamlessly blends into bg */}
       <div className="absolute right-0 top-0 bottom-0 w-[62%] pointer-events-none">
         <img
           src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/e8d94d6d-6d33-4114-8828-378d2556a84a.jpg"
-          alt="Дизайн для бизнеса через нейросети"
+          alt="Design for business powered by AI"
           className="w-full h-full object-cover object-left-top"
           style={{ mixBlendMode: "lighten" }}
         />
-        {/* Fade left edge into dark bg */}
         <div
           className="absolute inset-0"
           style={{
@@ -43,23 +45,10 @@ export default function Hero() {
               "linear-gradient(to right, #060d1f 0%, rgba(6,13,31,0.75) 15%, rgba(6,13,31,0.2) 35%, transparent 55%)",
           }}
         />
-        {/* Fade bottom */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to top, #060d1f 0%, transparent 18%)",
-          }}
-        />
-        {/* Fade top */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to bottom, #060d1f 0%, transparent 12%)",
-          }}
-        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #060d1f 0%, transparent 18%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #060d1f 0%, transparent 12%)" }} />
       </div>
 
-      {/* Left content */}
       <div className="relative z-10 px-6 md:px-12 lg:px-16 w-full md:max-w-[46%]">
         <h1
           className="font-extrabold uppercase text-white leading-[1.05] mb-7"
@@ -68,27 +57,19 @@ export default function Hero() {
             textShadow: "0 2px 30px rgba(0,60,180,0.35)",
           }}
         >
-          Дизайн для бизнеса<br />
-          через нейросети
+          {line1}<br />{line2}
         </h1>
 
-        {/* Services list */}
-        <p className="text-white/60 text-sm md:text-base mb-2 leading-relaxed">
-          Карточки товаров&nbsp;•&nbsp;Сайты&nbsp;•&nbsp;Меню для кафе
-        </p>
-        <p className="text-white/60 text-sm md:text-base mb-6 leading-relaxed">
-          Обложки ВК&nbsp;•&nbsp;Визуал для соцсетей&nbsp;•&nbsp;Брендинг
-        </p>
+        <p className="text-white/60 text-sm md:text-base mb-2 leading-relaxed">{t.hero.sub1}</p>
+        <p className="text-white/60 text-sm md:text-base mb-6 leading-relaxed">{t.hero.sub2}</p>
 
-        {/* Tagline */}
         <p
           className="text-white/80 text-sm md:text-base font-medium mb-8 leading-snug"
           style={{ textShadow: "0 0 20px rgba(0,150,255,0.3)" }}
         >
-          Быстрее фрилансера.&nbsp;Дешевле агентства.&nbsp;Круче шаблонов.
+          {t.hero.tagline}
         </p>
 
-        {/* Buttons */}
         <div className="flex flex-wrap gap-3">
           <button
             onClick={() => scrollTo("контакты")}
@@ -104,7 +85,7 @@ export default function Hero() {
               cursor: "pointer",
             }}
           >
-            Обсудить проект
+            {t.hero.cta}
           </button>
           <button
             onClick={() => scrollTo("портфолио")}
@@ -119,7 +100,7 @@ export default function Hero() {
               cursor: "pointer",
             }}
           >
-            Смотреть портфолио
+            {t.hero.portfolio}
           </button>
         </div>
       </div>

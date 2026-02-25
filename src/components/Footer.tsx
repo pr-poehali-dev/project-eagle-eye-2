@@ -1,20 +1,6 @@
 import Icon from "@/components/ui/icon";
 import { useNavigate } from "react-router-dom";
-
-const services = [
-  { label: "Карточки для маркетплейсов", href: "#маркетплейсы" },
-  { label: "Сайты через нейросети", href: "#сайты" },
-  { label: "Обложки для ВК", href: "#обложки" },
-  { label: "Логотипы и брендинг", href: "#логотипы" },
-  { label: "Меню для кафе", href: "#услуги" },
-];
-
-const links = [
-  { label: "Портфолио", href: "#портфолио" },
-  { label: "Обо мне", href: "#о нас" },
-  { label: "Блог", href: "/blog" },
-  { label: "Контакты", href: "#контакты" },
-];
+import { useLang } from "@/context/LanguageContext";
 
 const socials = [
   { icon: "Send", label: "Telegram", href: "https://t.me/seovzlet" },
@@ -23,6 +9,9 @@ const socials = [
 
 export default function Footer() {
   const navigate = useNavigate();
+  const { t } = useLang();
+  const f = t.footer;
+  const [tagLine1, tagLine2] = f.tagline.split("\n");
 
   const handleNav = (href: string) => {
     if (href.startsWith("/")) {
@@ -47,9 +36,7 @@ export default function Footer() {
       style={{ background: "linear-gradient(145deg, #07101f, #060c18)", borderTop: "1px solid rgba(0,170,255,0.08)" }}
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* Top: logo + tagline + socials */}
         <div className="flex flex-col md:flex-row justify-between gap-8 mb-12">
-          {/* Logo + tagline */}
           <div className="flex flex-col gap-4 max-w-xs">
             <div className="flex items-center gap-3">
               <div
@@ -82,10 +69,8 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-white/40 text-sm leading-relaxed">
-              Дизайн для бизнеса через нейросети.<br />
-              Быстрее фрилансера, дешевле агентства.
+              {tagLine1}<br />{tagLine2}
             </p>
-            {/* Socials */}
             <div className="flex gap-3 mt-1">
               {socials.map((s) => (
                 <a
@@ -105,12 +90,11 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Nav columns */}
           <div className="flex gap-12 sm:gap-20">
             <div>
-              <p className="text-white/40 text-xs uppercase tracking-widest mb-5 font-semibold">Услуги</p>
+              <p className="text-white/40 text-xs uppercase tracking-widest mb-5 font-semibold">{f.services}</p>
               <ul className="flex flex-col gap-3">
-                {services.map((item) => (
+                {f.serviceItems.map((item) => (
                   <li key={item.label}>
                     <button
                       onClick={() => handleNav(item.href)}
@@ -123,9 +107,9 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <p className="text-white/40 text-xs uppercase tracking-widest mb-5 font-semibold">Навигация</p>
+              <p className="text-white/40 text-xs uppercase tracking-widest mb-5 font-semibold">{f.nav}</p>
               <ul className="flex flex-col gap-3">
-                {links.map((item) => (
+                {f.navItems.map((item) => (
                   <li key={item.label}>
                     <button
                       onClick={() => handleNav(item.href)}
@@ -140,21 +124,16 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, rgba(0,170,255,0.2), transparent)" }} className="mb-5" />
 
-        {/* Copyright */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-2 mb-5">
           <p className="text-white/30 text-xs">
-            © {new Date().getFullYear()} Стрельцов Digital — Все права защищены
+            © {new Date().getFullYear()} Стрельцов Digital — {f.copyright}
           </p>
-          <p className="text-white/25 text-xs">
-            Дизайн через нейросети · Быстро · Качественно · Доступно
-          </p>
+          <p className="text-white/25 text-xs">{f.slogan}</p>
         </div>
       </div>
 
-      {/* Big STRELTSOV text */}
       <div className="overflow-hidden">
         <h2
           className="text-[13.5vw] sm:text-[14vw] lg:text-[12vw] leading-[0.85] font-extrabold tracking-tight uppercase block"
