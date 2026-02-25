@@ -1,3 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
+const goToContacts = (navigate: ReturnType<typeof useNavigate>, msg: string) => {
+  const el = document.getElementById("контакты");
+  if (el) { el.scrollIntoView({ behavior: "smooth" }); }
+  else { navigate("/"); setTimeout(() => document.getElementById("контакты")?.scrollIntoView({ behavior: "smooth" }), 100); }
+  setTimeout(() => {
+    const ta = document.querySelector<HTMLTextAreaElement>("#контакты textarea");
+    if (ta) { ta.value = msg; ta.dispatchEvent(new Event("input", { bubbles: true })); ta.focus(); }
+  }, 600);
+};
+
 const benefits = [
   "Статичные обложки — 1 картинка",
   "Живые обложки — 5 сменяющихся картинок",
@@ -21,6 +33,7 @@ const prices = [
 ];
 
 export default function VkCoversBlock() {
+  const navigate = useNavigate();
   return (
     <section
       id="обложки"
@@ -148,8 +161,8 @@ export default function VkCoversBlock() {
 
         {/* CTA */}
         <div className="flex justify-center">
-          <a
-            href="#контакты"
+          <button
+            onClick={() => goToContacts(navigate, "Хочу заказать обложку для группы ВКонтакте")}
             className="inline-flex items-center gap-2 font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
             style={{
               fontSize: "0.85rem",
@@ -161,7 +174,7 @@ export default function VkCoversBlock() {
             }}
           >
             Хочу обложку → Написать в ЛС
-          </a>
+          </button>
         </div>
       </div>
     </section>

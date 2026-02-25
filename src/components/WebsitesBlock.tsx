@@ -1,3 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
+const goToContacts = (navigate: ReturnType<typeof useNavigate>, msg: string) => {
+  const el = document.getElementById("контакты");
+  if (el) { el.scrollIntoView({ behavior: "smooth" }); }
+  else { navigate("/"); setTimeout(() => document.getElementById("контакты")?.scrollIntoView({ behavior: "smooth" }), 100); }
+  setTimeout(() => {
+    const ta = document.querySelector<HTMLTextAreaElement>("#контакты textarea");
+    if (ta) { ta.value = msg; ta.dispatchEvent(new Event("input", { bubbles: true })); ta.focus(); }
+  }, 600);
+};
+
 const benefits = [
   "Уникальный дизайн — не похож ни на кого",
   "Адаптив — работает на телефоне и компьютере",
@@ -30,6 +42,7 @@ const clients = [
 ];
 
 export default function WebsitesBlock() {
+  const navigate = useNavigate();
   return (
     <section
       id="сайты"
@@ -166,8 +179,8 @@ export default function WebsitesBlock() {
 
         {/* CTA */}
         <div className="mt-10 flex justify-center">
-          <a
-            href="#контакты"
+          <button
+            onClick={() => goToContacts(navigate, "Хочу заказать сайт через нейросети")}
             className="inline-flex items-center gap-2 font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
             style={{
               fontSize: "0.85rem",
@@ -179,7 +192,7 @@ export default function WebsitesBlock() {
             }}
           >
             Хочу сайт → Написать в ЛС
-          </a>
+          </button>
         </div>
       </div>
     </section>

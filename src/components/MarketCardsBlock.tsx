@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 const benefits = [
   "Главный слайд — цепляет взгляд в выдаче",
   "Инфографика — свойства и преимущества",
@@ -33,7 +35,18 @@ const packages = [
   },
 ];
 
+const goToContacts = (navigate: ReturnType<typeof useNavigate>, msg: string) => {
+  const el = document.getElementById("контакты");
+  if (el) { el.scrollIntoView({ behavior: "smooth" }); }
+  else { navigate("/"); setTimeout(() => document.getElementById("контакты")?.scrollIntoView({ behavior: "smooth" }), 100); }
+  setTimeout(() => {
+    const ta = document.querySelector<HTMLTextAreaElement>("#контакты textarea");
+    if (ta) { ta.value = msg; ta.dispatchEvent(new Event("input", { bubbles: true })); ta.focus(); }
+  }, 600);
+};
+
 export default function MarketCardsBlock() {
+  const navigate = useNavigate();
   return (
     <section
       id="маркетплейсы"
@@ -183,8 +196,8 @@ export default function MarketCardsBlock() {
 
         {/* CTA */}
         <div className="flex justify-center">
-          <a
-            href="#контакты"
+          <button
+            onClick={() => goToContacts(navigate, "Хочу заказать карточки товаров для маркетплейса")}
             className="inline-flex items-center gap-2 font-bold uppercase tracking-widest transition-all duration-300 hover:brightness-125"
             style={{
               fontSize: "0.85rem",
@@ -196,7 +209,7 @@ export default function MarketCardsBlock() {
             }}
           >
             Хочу карточки → Написать в ЛС
-          </a>
+          </button>
         </div>
       </div>
     </section>
