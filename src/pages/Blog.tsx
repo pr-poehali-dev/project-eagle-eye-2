@@ -51,7 +51,7 @@ export default function Blog() {
           style={{ textShadow: "0 0 40px rgba(0,212,255,0.2)" }}>
           БЛОГ
         </h1>
-        <p className="text-white/50 text-base md:text-lg max-w-xl mx-auto">Статьи о дизайне, нейросетях и бизнесе</p>
+        <p className="text-white/50 text-base md:text-lg max-w-xl mx-auto">Статьи о дизайне, нейросетях, продвижение и бизнесе</p>
         <div className="mt-5 mx-auto w-16 h-[2px]"
           style={{ background: "linear-gradient(90deg, transparent, #00d4ff, transparent)" }} />
       </div>
