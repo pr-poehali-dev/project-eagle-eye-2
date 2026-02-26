@@ -620,6 +620,51 @@ export default function Prodvizhenie() {
         </div>
       </section>
 
+      {/* Преимущества */}
+      <section className="px-6 md:px-16 py-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div
+              className="inline-block uppercase tracking-widest text-xs font-bold mb-5 px-4 py-2 rounded-full"
+              style={{ background: "rgba(0,140,255,0.12)", border: "1px solid rgba(0,140,255,0.3)", color: "#2b9fff" }}
+            >
+              Почему мы
+            </div>
+            <h2 className="font-black" style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}>
+              Почему клиенты выбирают нас
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { icon: "🔗", title: "Только живые ссылки", desc: "Никаких ботов и автоматических прогонов. Каждая ссылка размещается вручную на реальных площадках." },
+              { icon: "📊", title: "Прозрачные отчёты", desc: "После выполнения работы вы получаете подробный отчёт с URL каждой размещённой ссылки." },
+              { icon: "⚡", title: "Быстрый старт", desc: "Начинаем работу в день оплаты. Первые результаты видны уже через 2–4 недели." },
+              { icon: "🛡️", title: "Безопасные методы", desc: "Используем только белые методы продвижения. Никакого риска попасть под фильтры поисковых систем." },
+              { icon: "🎯", title: "3000+ заказов", desc: "Более 3000 успешно выполненных заказов по SEO. Знаем что работает в каждой нише." },
+              { icon: "💬", title: "Поддержка 24/7", desc: "На связи каждый день. Ответим на любые вопросы по продвижению вашего сайта." },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="flex gap-5 p-7 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+              >
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                  style={{ background: "rgba(0,140,255,0.1)", border: "1px solid rgba(0,140,255,0.2)" }}
+                >
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="font-bold text-white mb-2" style={{ fontSize: "1rem" }}>{item.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="px-6 md:px-12 py-24 text-center">
         <div className="max-w-2xl mx-auto">
