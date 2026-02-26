@@ -1,4 +1,4 @@
-export type BlogCategory = "Дизайн" | "Нейросети" | "Маркетплейсы" | "Кафе" | "Брендинг" | "Кейс" | "Гайд";
+export type BlogCategory = "Дизайн" | "Нейросети" | "Маркетплейсы" | "Кафе" | "Брендинг" | "Кейс" | "Гайд" | "Продвижение";
 
 export interface BlogPost {
   id: number;
@@ -31,6 +31,7 @@ const categoryColors: Record<BlogCategory, string> = {
   "Брендинг": "#ec4899",
   "Кейс": "#22c55e",
   "Гайд": "#eab308",
+  "Продвижение": "#00aaff",
 };
 
 export { categoryColors };
