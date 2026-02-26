@@ -389,6 +389,122 @@ export default function Prodvizhenie() {
         </div>
       </section>
 
+      {/* Крауд-маркетинг и статьи */}
+      <section className="px-6 md:px-16 py-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div
+              className="inline-block uppercase tracking-widest text-xs font-bold mb-5 px-4 py-2 rounded-full"
+              style={{ background: "rgba(0,140,255,0.12)", border: "1px solid rgba(0,140,255,0.3)", color: "#2b9fff" }}
+            >
+              Услуга 2
+            </div>
+            <h2 className="font-black mb-5" style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}>
+              Крауд-маркетинг и размещение статей
+            </h2>
+            <p className="text-white/55 max-w-2xl mx-auto" style={{ fontSize: "1.05rem", lineHeight: 1.75 }}>
+              Размещаем ссылки и статьи на авторитетных площадках. Естественный ссылочный профиль который нравится поисковикам.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                badge: "СТАТЬИ В БЛОГАХ",
+                title: "Размещение статей в 150 RU-блогах",
+                price: "17 400 ₽",
+                features: [
+                  "150 уникальных статей",
+                  "Размещение на русскоязычных блогах",
+                  "Вечные публикации — не удаляются",
+                  "Естественные ссылки в контексте статьи",
+                  "Рост авторитета сайта в глазах поисковиков",
+                  "Подробный отчёт с URL каждой статьи",
+                  "Срок: 14–21 день",
+                ],
+                note: "Подходит для: серьёзного продвижения. Поисковики высоко ценят ссылки из статей — это самый естественный тип ссылок.",
+                popular: false,
+              },
+              {
+                badge: "ФОРУМНЫЕ ССЫЛКИ",
+                title: "Ссылки в тематических статьях на форумах — 100 шт.",
+                price: "5 000 ₽",
+                features: [
+                  "100 ссылок на тематических форумах",
+                  "Размещение в контексте обсуждений",
+                  "Живые аккаунты с историей",
+                  "Тематическое окружение ссылки",
+                  "Отчёт со всеми ссылками",
+                  "Срок: 7–14 дней",
+                ],
+                note: "Подходит для: создания естественного ссылочного профиля. Поисковики видят что ваш сайт обсуждают реальные люди.",
+                popular: false,
+              },
+              {
+                badge: "РЕКОМЕНДАТЕЛЬНЫЕ ССЫЛКИ",
+                title: "Dofollow-ссылки по типу «вопрос-ответ» — 100 шт.",
+                price: "20 500 ₽",
+                features: [
+                  "100 dofollow-ссылок",
+                  "Размещение на сервисах вопросов-ответов",
+                  "Рекомендательный формат — высокое доверие",
+                  "Все ссылки передают вес вашему сайту",
+                  "Естественное окружение",
+                  "Подробный отчёт",
+                  "Срок: 14–21 день",
+                ],
+                note: "Подходит для: максимального эффекта от ссылок. Dofollow-ссылки напрямую передают авторитет вашему сайту и сильнее всего влияют на позиции.",
+                popular: false,
+              },
+            ].map((plan) => (
+              <div
+                key={plan.badge}
+                className="relative flex flex-col rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.09)",
+                }}
+              >
+                <div
+                  className="inline-block self-start text-xs font-black uppercase tracking-widest px-3 py-1 rounded-lg mb-4"
+                  style={{ background: "rgba(0,140,255,0.15)", color: "#00aaff", border: "1px solid rgba(0,140,255,0.3)" }}
+                >
+                  {plan.badge}
+                </div>
+
+                <h3 className="font-bold text-white mb-4 leading-snug" style={{ fontSize: "0.95rem" }}>{plan.title}</h3>
+
+                <div className="font-black mb-6" style={{ fontSize: "2rem", color: "#fff", letterSpacing: "-0.02em" }}>
+                  {plan.price}
+                </div>
+
+                <ul className="flex flex-col gap-2 mb-6 flex-1">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-white/75">
+                      <span style={{ color: "#22d3ee", marginTop: 2, flexShrink: 0 }}>✓</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="text-white/35 text-xs leading-relaxed mb-6">{plan.note}</p>
+
+                <button
+                  onClick={() => {
+                    navigate("/");
+                    setTimeout(() => document.getElementById("контакты")?.scrollIntoView({ behavior: "smooth" }), 100);
+                  }}
+                  className="w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 hover:scale-105"
+                  style={{ background: "rgba(255,255,255,0.08)", color: "#fff", border: "1px solid rgba(255,255,255,0.15)" }}
+                >
+                  Заказать
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="px-6 md:px-12 py-24 text-center">
         <div className="max-w-2xl mx-auto">
