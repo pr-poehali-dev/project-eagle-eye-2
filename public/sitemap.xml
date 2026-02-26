@@ -66,6 +66,13 @@
 
 
   <url>
+    <loc>https://streltsovdigital.ru/prodvizhenie</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
     <loc>https://streltsovdigital.ru/blog</loc>
     <lastmod>2026-02-24</lastmod>
     <changefreq>weekly</changefreq>
