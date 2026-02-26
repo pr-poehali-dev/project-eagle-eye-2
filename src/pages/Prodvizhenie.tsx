@@ -824,23 +824,13 @@ export default function Prodvizhenie() {
           <p className="text-white/60 mb-10 max-w-xl mx-auto" style={{ fontSize: "1.05rem", lineHeight: 1.75 }}>
             Напишите нам прямо сейчас — проанализируем ваш сайт и подберём оптимальную стратегию продвижения. Первые результаты уже через 2–4 недели.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => {
-                navigate("/");
-                setTimeout(() => document.getElementById("контакты")?.scrollIntoView({ behavior: "smooth" }), 100);
-              }}
-              className="px-9 py-4 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105"
-              style={{ background: "linear-gradient(135deg, #0060c0, #00aaff)", boxShadow: "0 0 35px rgba(0,140,255,0.45)", fontSize: "1rem", letterSpacing: "0.03em" }}
-            >
-              Заказать продвижение
-            </button>
+          <div className="flex justify-center">
             <a
-              href="https://t.me/+QgiLIa1gFRY4Y2Iy"
+              href="https://t.me/seovzlet"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-9 py-4 rounded-xl font-bold transition-all duration-300 hover:bg-white/10 flex items-center justify-center gap-2"
-              style={{ border: "1.5px solid rgba(255,255,255,0.25)", color: "#fff", fontSize: "1rem", letterSpacing: "0.03em" }}
+              className="px-10 py-4 rounded-xl font-bold transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3"
+              style={{ background: "linear-gradient(135deg, #0060c0, #00aaff)", boxShadow: "0 0 35px rgba(0,140,255,0.45)", color: "#fff", fontSize: "1rem", letterSpacing: "0.03em" }}
             >
               <Icon name="Send" size={18} />
               Написать в Telegram
