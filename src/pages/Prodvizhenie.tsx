@@ -597,24 +597,40 @@ export default function Prodvizhenie() {
         </div>
       </section>
 
+      {/* Обложка — Премиум продвижение */}
+      <div
+        className="relative flex items-center overflow-hidden"
+        style={{ background: "linear-gradient(135deg, #050c1a 0%, #071222 50%, #081830 100%)", minHeight: "clamp(300px, 38vw, 480px)" }}
+      >
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 80% at 72% 55%, rgba(0,100,255,0.28) 0%, rgba(0,50,150,0.12) 45%, transparent 70%)" }} />
+        <div className="absolute right-0 top-0 bottom-0 w-[62%] pointer-events-none">
+          <img
+            src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/c4d4e306-95b0-47aa-8317-cc910d2d6d22.jpg"
+            alt="Премиум продвижение"
+            className="w-full h-full object-cover object-center"
+            style={{ mixBlendMode: "lighten" }}
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #060d1f 0%, rgba(6,13,31,0.75) 15%, rgba(6,13,31,0.2) 35%, transparent 55%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #060d1f 0%, transparent 18%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #060d1f 0%, transparent 12%)" }} />
+        </div>
+        <div className="relative z-10 px-6 md:px-12 lg:px-16 w-full md:max-w-[52%] py-16">
+          <div className="inline-block uppercase tracking-widest text-xs font-bold mb-5 px-4 py-2 rounded-full" style={{ background: "rgba(0,140,255,0.12)", border: "1px solid rgba(0,140,255,0.3)", color: "#2b9fff" }}>
+            Услуга 3
+          </div>
+          <h2 className="font-extrabold uppercase text-white leading-tight mb-5" style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", textShadow: "0 2px 30px rgba(0,60,180,0.35)" }}>
+            Премиум<br />продвижение
+          </h2>
+          <p className="text-white/65 mb-2 leading-relaxed" style={{ fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)" }}>Высокий ИКС. Ежедневное размещение.</p>
+          <p className="text-white/80 font-medium leading-snug" style={{ fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)", textShadow: "0 0 20px rgba(0,150,255,0.3)" }}>
+            Максимальный результат для тех кто хочет доминировать в выдаче.
+          </p>
+        </div>
+      </div>
+
       {/* Премиум продвижение */}
       <section className="px-6 md:px-16 py-24" style={{ background: "rgba(255,255,255,0.02)" }}>
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <div
-              className="inline-block uppercase tracking-widest text-xs font-bold mb-5 px-4 py-2 rounded-full"
-              style={{ background: "rgba(0,140,255,0.12)", border: "1px solid rgba(0,140,255,0.3)", color: "#2b9fff" }}
-            >
-              Услуга 3
-            </div>
-            <h2 className="font-black mb-5" style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}>
-              Премиум продвижение
-            </h2>
-            <p className="text-white/55 max-w-2xl mx-auto" style={{ fontSize: "1.05rem", lineHeight: 1.75 }}>
-              Максимальный результат для тех кто хочет доминировать в поисковой выдаче. Площадки с высоким ИКС и ежедневное размещение.
-            </p>
-          </div>
-
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
