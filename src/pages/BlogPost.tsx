@@ -162,23 +162,44 @@ export default function BlogPost() {
         </div>
 
         {/* CTA */}
-        <div className="mt-14 rounded-2xl p-8 text-center"
-          style={{ background: "linear-gradient(135deg, #111827, #0d1a2e)", border: "1px solid rgba(0,212,255,0.2)" }}>
-          <p className="text-2xl font-extrabold text-white mb-2">🔥 Хотите такой же результат?</p>
-          <p className="text-[#94a3b8] mb-6">Сделаю дизайн для вашего бизнеса.<br />Первый макет бесплатно за 24 часа.</p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <a href="https://vk.com/blacksetpro" target="_blank" rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider text-white transition-all hover:opacity-90"
-              style={{ background: "#0077ff" }}>
-              Написать в ВК
-            </a>
-            <a href="https://t.me/seovzlet" target="_blank" rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all hover:opacity-90"
-              style={{ background: "#00d4ff", color: "#0a0e1a" }}>
-              Написать в Telegram
-            </a>
+        {post.category === "Продвижение" ? (
+          <div className="mt-14 rounded-2xl p-8 text-center"
+            style={{ background: "linear-gradient(135deg, #0a1628, #0d1f3c)", border: "1px solid rgba(0,140,255,0.3)" }}>
+            <p className="text-2xl font-extrabold text-white mb-2">🚀 Хотите вывести сайт в ТОП?</p>
+            <p className="text-[#94a3b8] mb-2">Более 3000 выполненных заказов с 2019 года.</p>
+            <p className="text-[#94a3b8] mb-6">Проанализируем ваш сайт и подберём стратегию — бесплатно.</p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <a href="https://t.me/seovzlet" target="_blank" rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider text-white transition-all hover:scale-105"
+                style={{ background: "linear-gradient(135deg, #0060c0, #00aaff)", boxShadow: "0 0 25px rgba(0,140,255,0.4)" }}>
+                Написать в Telegram
+              </a>
+              <a href="/prodvizhenie"
+                className="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all hover:bg-white/10"
+                style={{ border: "1.5px solid rgba(255,255,255,0.25)", color: "#fff" }}>
+                Смотреть тарифы
+              </a>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="mt-14 rounded-2xl p-8 text-center"
+            style={{ background: "linear-gradient(135deg, #111827, #0d1a2e)", border: "1px solid rgba(0,212,255,0.2)" }}>
+            <p className="text-2xl font-extrabold text-white mb-2">🔥 Хотите такой же результат?</p>
+            <p className="text-[#94a3b8] mb-6">Сделаю дизайн для вашего бизнеса.<br />Первый макет бесплатно за 24 часа.</p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <a href="https://vk.com/blacksetpro" target="_blank" rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider text-white transition-all hover:opacity-90"
+                style={{ background: "#0077ff" }}>
+                Написать в ВК
+              </a>
+              <a href="https://t.me/seovzlet" target="_blank" rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all hover:opacity-90"
+                style={{ background: "#00d4ff", color: "#0a0e1a" }}>
+                Написать в Telegram
+              </a>
+            </div>
+          </div>
+        )}
 
         {/* Share bottom */}
         <div className="mt-10 pt-8 border-t border-white/8">
