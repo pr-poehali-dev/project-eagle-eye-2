@@ -884,6 +884,47 @@ export default function Prodvizhenie() {
         </div>
       </section>
 
+      {/* Баннер — крестпромо дизайн */}
+      <section className="px-6 md:px-16 pb-20">
+        <div
+          className="relative max-w-6xl mx-auto rounded-3xl overflow-hidden flex flex-col md:flex-row items-center"
+          style={{ background: "linear-gradient(120deg, #060d1f 0%, #0a1228 60%, #0d1535 100%)", border: "1px solid rgba(255,255,255,0.08)", minHeight: 260 }}
+        >
+          {/* bg glow */}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 100% at 70% 50%, rgba(80,60,200,0.18) 0%, transparent 70%)" }} />
+
+          {/* Text side */}
+          <div className="relative z-10 flex-1 px-8 md:px-12 py-10 md:py-12">
+            <p className="font-black mb-3 leading-tight" style={{ fontSize: "clamp(1.2rem, 3vw, 1.75rem)", color: "#fff" }}>
+              Продвижение не нужно? Есть кое-что ещё 👀
+            </p>
+            <p className="text-white/60 mb-7 leading-relaxed" style={{ fontSize: "clamp(0.875rem, 1.5vw, 1rem)", maxWidth: 480 }}>
+              Делаем крутой дизайн для бизнеса через нейросети — от логотипа до полного брендинга. Выглядит на миллион, стоит в разы дешевле студий.
+            </p>
+            <a
+              href="/"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-bold transition-all duration-300 hover:scale-105"
+              style={{ background: "linear-gradient(135deg, #5b21b6, #7c3aed)", boxShadow: "0 0 30px rgba(124,58,237,0.4)", color: "#fff", fontSize: "0.95rem" }}
+            >
+              Хочу крутой дизайн
+              <Icon name="ArrowRight" size={16} />
+            </a>
+          </div>
+
+          {/* Image side */}
+          <div className="relative w-full md:w-[45%] h-56 md:h-auto md:self-stretch flex-shrink-0">
+            <img
+              src="https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/309cf4a6-f411-443a-a81e-a80c1e2381f3.jpg"
+              alt="Дизайн для бизнеса"
+              className="w-full h-full object-cover object-center"
+              style={{ mixBlendMode: "lighten" }}
+            />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #060d1f 0%, transparent 40%)" }} />
+            <div className="absolute inset-0 md:hidden" style={{ background: "linear-gradient(to top, #060d1f 0%, transparent 50%)" }} />
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
