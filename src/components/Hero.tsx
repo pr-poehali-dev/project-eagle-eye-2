@@ -56,7 +56,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-white/60 text-sm md:text-base mb-2 leading-relaxed">Карточки товаров. Меню для кафе</p>
-        <p className="text-white/60 text-sm md:text-base mb-6 leading-relaxed">Обложки ВК\u00a0•\u00a0Визуал для соцсетей\u00a0•\u00a0Брендинг</p>
+        <p className="text-white/60 text-sm md:text-base mb-6 leading-relaxed">Обложки ВК. Визуал для соцсетей. Брендинг</p>
 
         <p
           className="text-white/80 text-sm md:text-base font-medium mb-8 leading-snug"
