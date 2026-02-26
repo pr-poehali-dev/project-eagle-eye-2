@@ -241,31 +241,148 @@ export default function Prodvizhenie() {
         </div>
       </section>
 
-      {/* OLD How it works — hidden, replaced above */}
-      <section className="hidden px-6 md:px-12 py-20" style={{ background: "rgba(255,255,255,0.02)" }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-6">
-            {steps.map((s, i) => (
-              <div key={s.num} className="relative">
-                {i < steps.length - 1 && (
+      {/* Ссылочное продвижение — тарифы */}
+      <section id="тарифы" className="px-6 md:px-16 py-24" style={{ background: "rgba(255,255,255,0.02)" }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div
+              className="inline-block uppercase tracking-widest text-xs font-bold mb-5 px-4 py-2 rounded-full"
+              style={{ background: "rgba(0,140,255,0.12)", border: "1px solid rgba(0,140,255,0.3)", color: "#2b9fff" }}
+            >
+              Услуга 1
+            </div>
+            <h2 className="font-black mb-5" style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}>
+              Ссылочное продвижение
+            </h2>
+            <p className="text-white/55 max-w-2xl mx-auto" style={{ fontSize: "1.05rem", lineHeight: 1.75 }}>
+              Наращиваем ссылочную массу вашего сайта. Поисковики видят что на вас ссылаются — и поднимают в выдаче.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                badge: "ПРОБНЫЙ",
+                title: "Профессиональные ссылки — 300 шт.",
+                price: "850 ₽",
+                features: [
+                  "300 ссылок с проверенных площадок",
+                  "Ручное размещение",
+                  "Отчёт со всеми ссылками",
+                  "Срок: 3–5 дней",
+                ],
+                note: "Подходит для: новых сайтов, которым нужен первый толчок в продвижении",
+                popular: false,
+                color: "#00aaff",
+              },
+              {
+                badge: "PRO",
+                title: "Статейные ссылки — 90 шт.",
+                price: "1 990 ₽",
+                features: [
+                  "90 статейных ссылок",
+                  "Размещение в тематических статьях",
+                  "Вечные ссылки — не удаляются",
+                  "Отчёт со всеми ссылками",
+                  "Срок: 5–7 дней",
+                ],
+                note: "Подходит для: сайтов, которым нужен стабильный рост позиций",
+                popular: false,
+                color: "#00aaff",
+              },
+              {
+                badge: "PREMIUM",
+                title: "Статейные ссылки — 150 шт.",
+                price: "2 650 ₽",
+                features: [
+                  "150 статейных ссылок",
+                  "Размещение на качественных площадках",
+                  "Вечные ссылки — работают постоянно",
+                  "Разнообразие анкоров",
+                  "Подробный отчёт",
+                  "Срок: 5–10 дней",
+                ],
+                note: "Подходит для: бизнесов, которые хотят обойти конкурентов в выдаче",
+                popular: true,
+                color: "#00aaff",
+              },
+              {
+                badge: "ULTRA",
+                title: "4000 ссылок в мини-статьях",
+                price: "3 390 ₽",
+                features: [
+                  "4000 ссылок в мини-статьях",
+                  "Массовое наращивание ссылочной массы",
+                  "Широкий охват площадок",
+                  "Разнообразие анкоров и источников",
+                  "Подробный отчёт",
+                  "Срок: 7–14 дней",
+                ],
+                note: "Подходит для: агрессивного продвижения и быстрого роста позиций",
+                popular: false,
+                color: "#00aaff",
+              },
+            ].map((plan) => (
+              <div
+                key={plan.badge}
+                className="relative flex flex-col rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1"
+                style={{
+                  background: plan.popular
+                    ? "linear-gradient(160deg, rgba(0,100,200,0.25) 0%, rgba(0,60,140,0.18) 100%)"
+                    : "rgba(255,255,255,0.04)",
+                  border: plan.popular
+                    ? "1.5px solid rgba(0,140,255,0.55)"
+                    : "1px solid rgba(255,255,255,0.09)",
+                  boxShadow: plan.popular ? "0 0 40px rgba(0,140,255,0.18)" : "none",
+                }}
+              >
+                {plan.popular && (
                   <div
-                    className="hidden md:block absolute top-8 left-full w-full h-px z-0"
-                    style={{ background: "linear-gradient(to right, rgba(0,140,255,0.4), transparent)" }}
-                  />
-                )}
-                <div
-                  className="relative z-10 p-6 rounded-2xl text-center"
-                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
-                >
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 font-black"
-                    style={{ background: "rgba(0,140,255,0.15)", border: "2px solid rgba(0,140,255,0.4)", color: "#00aaff", fontSize: "1.1rem" }}
+                    className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-xs font-black px-4 py-1 rounded-full uppercase tracking-widest"
+                    style={{ background: "linear-gradient(90deg, #0070d6, #00aaff)", color: "#fff" }}
                   >
-                    {s.num}
+                    Популярный
                   </div>
-                  <h3 className="font-bold text-white mb-2">{s.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{s.desc}</p>
+                )}
+
+                <div
+                  className="inline-block self-start text-xs font-black uppercase tracking-widest px-3 py-1 rounded-lg mb-4"
+                  style={{ background: "rgba(0,140,255,0.15)", color: "#00aaff", border: "1px solid rgba(0,140,255,0.3)" }}
+                >
+                  {plan.badge}
                 </div>
+
+                <h3 className="font-bold text-white mb-4 leading-snug" style={{ fontSize: "0.95rem" }}>{plan.title}</h3>
+
+                <div className="font-black mb-6" style={{ fontSize: "2rem", color: "#fff", letterSpacing: "-0.02em" }}>
+                  {plan.price}
+                </div>
+
+                <ul className="flex flex-col gap-2 mb-6 flex-1">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-white/75">
+                      <span style={{ color: "#22d3ee", marginTop: 2, flexShrink: 0 }}>✓</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="text-white/35 text-xs leading-relaxed mb-6">{plan.note}</p>
+
+                <button
+                  onClick={() => {
+                    navigate("/");
+                    setTimeout(() => document.getElementById("контакты")?.scrollIntoView({ behavior: "smooth" }), 100);
+                  }}
+                  className="w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 hover:scale-105"
+                  style={
+                    plan.popular
+                      ? { background: "linear-gradient(135deg, #0060c0, #00aaff)", color: "#fff", boxShadow: "0 0 25px rgba(0,140,255,0.4)" }
+                      : { background: "rgba(255,255,255,0.08)", color: "#fff", border: "1px solid rgba(255,255,255,0.15)" }
+                  }
+                >
+                  Заказать
+                </button>
               </div>
             ))}
           </div>
