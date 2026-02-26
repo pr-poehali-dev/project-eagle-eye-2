@@ -77,50 +77,71 @@ export default function Prodvizhenie() {
 
       {/* Hero */}
       <section
-        className="relative flex flex-col items-center justify-center text-center px-6 pt-40 pb-24 overflow-hidden"
-        style={{ minHeight: "80vh" }}
+        className="relative flex flex-col justify-center overflow-hidden"
+        style={{ minHeight: "100vh" }}
       >
-        {/* bg glow */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div style={{ position: "absolute", top: "15%", left: "50%", transform: "translateX(-50%)", width: 700, height: 400, background: "radial-gradient(ellipse, rgba(0,140,255,0.13) 0%, transparent 70%)", borderRadius: "50%" }} />
-          <div style={{ position: "absolute", bottom: 0, left: "20%", width: 400, height: 300, background: "radial-gradient(ellipse, rgba(168,85,247,0.1) 0%, transparent 70%)", borderRadius: "50%" }} />
-        </div>
+        {/* Background image */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: "url(https://cdn.poehali.dev/projects/25f186af-48c8-4ca3-855d-9a56ba005137/bucket/8d69c828-476d-47e8-bc88-0de8aec5b2d0.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center right",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+        {/* Dark overlay — stronger on left for text readability */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(100deg, rgba(5,10,22,0.92) 0%, rgba(5,10,22,0.75) 45%, rgba(5,10,22,0.2) 100%)" }}
+        />
 
-        <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="relative z-10 px-8 md:px-16 lg:px-24 pt-32 pb-20 max-w-3xl">
           <div
-            className="inline-block uppercase tracking-widest text-xs font-bold mb-6 px-4 py-2 rounded-full"
-            style={{ background: "rgba(0,140,255,0.12)", border: "1px solid rgba(0,140,255,0.3)", color: "#2b9fff" }}
+            className="inline-block uppercase tracking-widest text-xs font-bold mb-8 px-4 py-2 rounded-full"
+            style={{ background: "rgba(0,140,255,0.15)", border: "1px solid rgba(0,140,255,0.4)", color: "#2b9fff" }}
           >
-            Продвижение
+            Стрельцов Digital
           </div>
+
           <h1
-            className="font-black mb-6 leading-none"
-            style={{ fontSize: "clamp(2.2rem, 7vw, 5rem)", letterSpacing: "-0.03em" }}
+            className="font-black leading-none mb-6"
+            style={{ fontSize: "clamp(2.8rem, 8vw, 6rem)", letterSpacing: "-0.03em" }}
           >
-            Больше клиентов.
+            ПРОДВИЖЕНИЕ
             <br />
-            <span style={{ color: "#00aaff" }}>Больше продаж.</span>
+            САЙТОВ
+            <br />
+            <span style={{ color: "#00aaff" }}>В ТОП</span>
           </h1>
-          <p className="text-white/60 mb-10 max-w-xl mx-auto" style={{ fontSize: "1.15rem", lineHeight: 1.7 }}>
-            Продвигаем малый и средний бизнес в интернете — маркетплейсы, соцсети, поиск. Прозрачно, с измеримым результатом.
+
+          <p className="mb-3 font-semibold" style={{ fontSize: "clamp(1rem, 2.5vw, 1.25rem)", color: "rgba(255,255,255,0.85)" }}>
+            Крауд-ссылки. Вечные ссылки.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <p className="mb-3 font-semibold" style={{ fontSize: "clamp(1rem, 2.5vw, 1.25rem)", color: "rgba(255,255,255,0.85)" }}>
+            Статьи на площадках. Высокий ИКС.
+          </p>
+          <p className="mb-10 font-semibold" style={{ fontSize: "clamp(1rem, 2.5vw, 1.25rem)", color: "rgba(255,255,255,0.6)" }}>
+            Больше трафика. Больше клиентов. Из поиска.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4">
             <button
               onClick={() => {
                 navigate("/");
                 setTimeout(() => document.getElementById("контакты")?.scrollIntoView({ behavior: "smooth" }), 100);
               }}
-              className="px-8 py-4 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105"
-              style={{ background: "linear-gradient(135deg, #0070d6, #00aaff)", boxShadow: "0 0 30px rgba(0,140,255,0.4)", fontSize: "1rem" }}
+              className="px-8 py-4 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              style={{ background: "linear-gradient(135deg, #0060c0, #00aaff)", boxShadow: "0 0 35px rgba(0,140,255,0.45)", fontSize: "1rem", letterSpacing: "0.04em" }}
             >
-              Обсудить продвижение
+              ЗАКАЗАТЬ ПРОДВИЖЕНИЕ
             </button>
             <button
-              onClick={() => document.getElementById("услуги-продвижения")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => document.getElementById("тарифы")?.scrollIntoView({ behavior: "smooth" })}
               className="px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:bg-white/10"
-              style={{ border: "1px solid rgba(255,255,255,0.2)", color: "#fff", fontSize: "1rem" }}
+              style={{ border: "1.5px solid rgba(255,255,255,0.3)", color: "#fff", fontSize: "1rem", letterSpacing: "0.04em" }}
             >
-              Узнать подробнее
+              СМОТРЕТЬ ТАРИФЫ
             </button>
           </div>
         </div>
