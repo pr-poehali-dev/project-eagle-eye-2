@@ -55,7 +55,7 @@ export default function Hero() {
           Дизайн для бизнеса<br />через нейросети
         </h1>
 
-        <p className="text-white/60 text-sm md:text-base mb-2 leading-relaxed">Карточки товаров\u00a0•\u00a0Сайты\u00a0•\u00a0Меню для кафе</p>
+        <p className="text-white/60 text-sm md:text-base mb-2 leading-relaxed">Карточки товаров. Меню для кафе</p>
         <p className="text-white/60 text-sm md:text-base mb-6 leading-relaxed">Обложки ВК\u00a0•\u00a0Визуал для соцсетей\u00a0•\u00a0Брендинг</p>
 
         <p
