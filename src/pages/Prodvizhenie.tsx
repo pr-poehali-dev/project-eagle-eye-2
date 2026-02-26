@@ -335,21 +335,6 @@ export default function Prodvizhenie() {
       {/* Ссылочное продвижение — тарифы */}
       <section id="тарифы" className="px-6 md:px-16 py-24" style={{ background: "rgba(255,255,255,0.02)" }}>
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <div
-              className="inline-block uppercase tracking-widest text-xs font-bold mb-5 px-4 py-2 rounded-full"
-              style={{ background: "rgba(0,140,255,0.12)", border: "1px solid rgba(0,140,255,0.3)", color: "#2b9fff" }}
-            >
-              Услуга 1
-            </div>
-            <h2 className="font-black mb-5" style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}>
-              Ссылочное продвижение
-            </h2>
-            <p className="text-white/55 max-w-2xl mx-auto" style={{ fontSize: "1.05rem", lineHeight: 1.75 }}>
-              Наращиваем ссылочную массу вашего сайта. Поисковики видят что на вас ссылаются — и поднимают в выдаче.
-            </p>
-          </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
