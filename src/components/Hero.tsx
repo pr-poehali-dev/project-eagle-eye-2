@@ -61,9 +61,7 @@ export default function Hero() {
         <p
           className="text-white/80 text-sm md:text-base font-medium mb-8 leading-snug"
           style={{ textShadow: "0 0 20px rgba(0,150,255,0.3)" }}
-        >
-          Быстрее фрилансера.\u00a0Дешевле агентства.\u00a0Круче шаблонов.
-        </p>
+        >Быстрее фрилансера. Дешевле агентства. Круче шаблонов.</p>
 
         <div className="flex flex-wrap gap-3">
           <button
