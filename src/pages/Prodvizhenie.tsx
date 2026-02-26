@@ -147,71 +147,103 @@ export default function Prodvizhenie() {
         </div>
       </section>
 
-      {/* Results */}
-      <section className="px-6 md:px-12 pb-20">
+      {/* Stats */}
+      <section className="px-6 md:px-16 py-16" style={{ background: "rgba(0,0,0,0.3)", borderTop: "1px solid rgba(255,255,255,0.07)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-          {results.map((r) => (
+          {[
+            { value: "3000+", top: "выполненных", bot: "заказов" },
+            { value: "5 лет", top: "опыт", bot: "в SEO" },
+            { value: "150+", top: "сайтов в", bot: "ТОПе" },
+            { value: "ТОП-10", top: "за 2–3", bot: "месяца" },
+          ].map((s) => (
             <div
-              key={r.label}
-              className="text-center p-6 rounded-2xl"
-              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+              key={s.value}
+              className="text-center py-6 px-4 rounded-2xl"
+              style={{ background: "rgba(0,140,255,0.06)", border: "1px solid rgba(0,140,255,0.2)" }}
             >
-              <div className="font-black mb-1" style={{ fontSize: "2.5rem", color: "#00aaff" }}>{r.value}</div>
-              <div className="text-white/50 text-sm">{r.label}</div>
+              <div className="font-black mb-2" style={{ fontSize: "clamp(2rem, 5vw, 2.8rem)", color: "#00aaff", letterSpacing: "-0.02em" }}>{s.value}</div>
+              <div className="text-white/60 text-sm leading-snug">{s.top}<br />{s.bot}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Services */}
-      <section id="услуги-продвижения" className="px-6 md:px-12 py-20">
+      {/* How SEO works */}
+      <section id="услуги-продвижения" className="px-6 md:px-16 py-24">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-16">
             <div
-              className="inline-block uppercase tracking-widest text-xs font-bold mb-4 px-4 py-2 rounded-full"
+              className="inline-block uppercase tracking-widest text-xs font-bold mb-5 px-4 py-2 rounded-full"
               style={{ background: "rgba(0,140,255,0.12)", border: "1px solid rgba(0,140,255,0.3)", color: "#2b9fff" }}
             >
-              Услуги
+              Как это работает
             </div>
-            <h2 className="font-black" style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}>
-              Что входит в продвижение
+            <h2 className="font-black mb-5" style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}>
+              Почему сайты без SEO теряют клиентов
             </h2>
+            <p className="text-white/55 max-w-2xl mx-auto" style={{ fontSize: "1.05rem", lineHeight: 1.75 }}>
+              Каждый день тысячи людей ищут ваши услуги в Яндексе и Google. Вопрос — находят они вас или ваших конкурентов?
+            </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s) => (
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                num: "01",
+                title: "Анализ сайта",
+                desc: "Проверяем текущие позиции, ссылочный профиль, конкурентов и точки роста. Составляем стратегию продвижения.",
+                icon: "Search",
+              },
+              {
+                num: "02",
+                title: "Ссылочная масса",
+                desc: "Размещаем качественные ссылки на ваш сайт с авторитетных площадок. Поисковики начинают доверять вашему сайту.",
+                icon: "Link",
+              },
+              {
+                num: "03",
+                title: "Рост позиций",
+                desc: "Сайт поднимается в поисковой выдаче. Чем выше позиция — тем больше людей переходят на ваш сайт.",
+                icon: "TrendingUp",
+              },
+              {
+                num: "04",
+                title: "Клиенты из поиска",
+                desc: "Вы получаете бесплатный поток клиентов из Яндекса и Google каждый день. Без оплаты за клики.",
+                icon: "Users",
+              },
+            ].map((card, i) => (
               <div
-                key={s.title}
-                className="p-7 rounded-2xl transition-all duration-300 hover:-translate-y-1"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+                key={card.num}
+                className="relative p-7 rounded-2xl flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1"
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.09)" }}
               >
+                {/* Connector line */}
+                {i < 3 && (
+                  <div
+                    className="hidden lg:block absolute top-10 left-full w-6 h-px z-10"
+                    style={{ background: "linear-gradient(to right, rgba(0,140,255,0.5), transparent)" }}
+                  />
+                )}
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                  style={{ background: `${s.color}18`, border: `1px solid ${s.color}40` }}
+                  className="w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm"
+                  style={{ background: "rgba(0,140,255,0.15)", border: "1.5px solid rgba(0,140,255,0.35)", color: "#00aaff" }}
                 >
-                  <Icon name={s.icon as "TrendingUp"} size={22} style={{ color: s.color }} />
+                  {card.num}
                 </div>
-                <h3 className="font-bold text-white mb-2" style={{ fontSize: "1.05rem" }}>{s.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{s.desc}</p>
+                <div>
+                  <h3 className="font-bold text-white mb-2" style={{ fontSize: "1.05rem" }}>{card.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{card.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="px-6 md:px-12 py-20" style={{ background: "rgba(255,255,255,0.02)" }}>
+      {/* OLD How it works — hidden, replaced above */}
+      <section className="hidden px-6 md:px-12 py-20" style={{ background: "rgba(255,255,255,0.02)" }}>
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <div
-              className="inline-block uppercase tracking-widest text-xs font-bold mb-4 px-4 py-2 rounded-full"
-              style={{ background: "rgba(0,140,255,0.12)", border: "1px solid rgba(0,140,255,0.3)", color: "#2b9fff" }}
-            >
-              Процесс
-            </div>
-            <h2 className="font-black" style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}>
-              Как мы работаем
-            </h2>
-          </div>
           <div className="grid md:grid-cols-4 gap-6">
             {steps.map((s, i) => (
               <div key={s.num} className="relative">
