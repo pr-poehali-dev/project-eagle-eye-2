@@ -190,10 +190,7 @@ export default function Prodvizhenie() {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <button
-              onClick={() => {
-                navigate("/");
-                setTimeout(() => document.getElementById("контакты")?.scrollIntoView({ behavior: "smooth" }), 100);
-              }}
+              onClick={() => document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })}
               className="px-8 py-4 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl"
               style={{ background: "linear-gradient(135deg, #0060c0, #00aaff)", boxShadow: "0 0 35px rgba(0,140,255,0.45)", fontSize: "1rem", letterSpacing: "0.04em" }}
             >
@@ -810,7 +807,7 @@ export default function Prodvizhenie() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 md:px-16 py-24 relative overflow-hidden">
+      <section id="cta" className="px-6 md:px-16 py-24 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 800, height: 400, background: "radial-gradient(ellipse, rgba(0,100,220,0.18) 0%, transparent 70%)", borderRadius: "50%" }} />
         </div>
