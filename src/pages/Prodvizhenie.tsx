@@ -125,12 +125,12 @@ export default function Prodvizhenie() {
 
   useEffect(() => {
     const prev = document.title;
-    document.title = "Продвижение бизнеса — Стрельцов Digital";
+    document.title = "SEO продвижение сайтов — ссылки, статьи, крауд | Streltsov Digital";
     const setMeta = (sel: string, val: string) => {
       const el = document.querySelector(sel);
       if (el) el.setAttribute("content", val);
     };
-    setMeta('meta[name="description"]', "Продвижение на маркетплейсах, SMM, SEO, контекстная реклама. Стрельцов Digital — рост продаж для малого и среднего бизнеса.");
+    setMeta('meta[name="description"]', "Продвижение сайтов в ТОП Яндекса и Google. Крауд-ссылки, вечные ссылки, статьи в блогах, размещение на площадках с ИКС от 100. От 850₽. Результат за 2-4 недели.");
     return () => { document.title = prev; };
   }, []);
 
