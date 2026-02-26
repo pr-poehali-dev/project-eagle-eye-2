@@ -11,7 +11,7 @@ const navItems = [
   { label: "Маркетплейсы", href: "#маркетплейсы" },
   { label: "Сайты", href: "#сайты" },
   { label: "Логотипы", href: "#логотипы" },
-  { label: "Портфолио", href: "#портфолио" },
+  { label: "Продвижение", href: "/prodvizhenie" },
   { label: "Блог", href: "/blog" },
   { label: "Контакты", href: "#контакты" },
 ];
