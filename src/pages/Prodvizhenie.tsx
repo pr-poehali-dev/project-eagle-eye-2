@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -56,6 +56,69 @@ const results = [
   { value: "14 дн", label: "до первых результатов" },
   { value: "0₽", label: "скрытых платежей" },
 ];
+
+const faqItems = [
+  {
+    q: "Через сколько будет результат?",
+    a: "Первые изменения в позициях видны через 2–4 недели после размещения ссылок. Стабильный результат — через 1–3 месяца. SEO — это накопительный эффект: чем больше качественных ссылок, тем выше и стабильнее позиции.",
+  },
+  {
+    q: "Ссылки не удалят?",
+    a: "Нет. Мы размещаем вечные ссылки на проверенных площадках. Они остаются навсегда и работают на продвижение вашего сайта постоянно. В отчёте вы получите URL каждой ссылки и сможете проверить.",
+  },
+  {
+    q: "Это безопасно для сайта?",
+    a: "Да. Мы используем только белые методы продвижения. Ссылки размещаются постепенно, на разных площадках, с разными анкорами — всё выглядит естественно для поисковых систем. Никакого риска попасть под фильтры.",
+  },
+  {
+    q: "Какой тариф выбрать?",
+    a: "Зависит от ваших целей. Для нового сайта подойдёт Пробный тариф. Для активного продвижения — Premium или Ultra. Для максимального эффекта — премиум продвижение с высоким ИКС. Напишите нам — подберём оптимальный вариант.",
+  },
+  {
+    q: "Работаете с любыми нишами?",
+    a: "Да. У нас опыт продвижения сайтов в любых нишах: услуги, интернет-магазины, медицина, строительство, авто, юридические услуги, недвижимость, рестораны и другие.",
+  },
+  {
+    q: "Что будет в отчёте?",
+    a: "Подробный список с URL каждой размещённой ссылки. Вы сможете перейти по каждой ссылке и убедиться что она на месте. Для премиум тарифов — дополнительно ИКС каждой площадки.",
+  },
+];
+
+function FaqList() {
+  const [open, setOpen] = useState<number | null>(null);
+  return (
+    <div className="flex flex-col gap-3">
+      {faqItems.map((item, i) => (
+        <div
+          key={i}
+          className="rounded-2xl overflow-hidden"
+          style={{ border: open === i ? "1px solid rgba(0,140,255,0.35)" : "1px solid rgba(255,255,255,0.08)", background: open === i ? "rgba(0,140,255,0.06)" : "rgba(255,255,255,0.03)" }}
+        >
+          <button
+            className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left transition-colors duration-200 hover:bg-white/5"
+            onClick={() => setOpen(open === i ? null : i)}
+          >
+            <span className="font-semibold text-white" style={{ fontSize: "1rem" }}>{item.q}</span>
+            <span
+              className="flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center transition-transform duration-300"
+              style={{
+                background: open === i ? "rgba(0,140,255,0.2)" : "rgba(255,255,255,0.07)",
+                transform: open === i ? "rotate(45deg)" : "rotate(0deg)",
+              }}
+            >
+              <Icon name="Plus" size={14} style={{ color: open === i ? "#00aaff" : "rgba(255,255,255,0.5)" }} />
+            </span>
+          </button>
+          {open === i && (
+            <div className="px-6 pb-5 text-white/60 text-sm leading-relaxed" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+              <p className="pt-4">{item.a}</p>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function Prodvizhenie() {
   const navigate = useNavigate();
@@ -724,6 +787,25 @@ export default function Prodvizhenie() {
               Отправить заявку
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-6 md:px-16 py-24">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <div
+              className="inline-block uppercase tracking-widest text-xs font-bold mb-5 px-4 py-2 rounded-full"
+              style={{ background: "rgba(0,140,255,0.12)", border: "1px solid rgba(0,140,255,0.3)", color: "#2b9fff" }}
+            >
+              Вопросы и ответы
+            </div>
+            <h2 className="font-black" style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}>
+              Частые вопросы
+            </h2>
+          </div>
+
+          <FaqList />
         </div>
       </section>
 
